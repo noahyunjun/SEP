@@ -11,6 +11,7 @@
     <title>$Title$</title>
   </head>
   <body>
-  $END$
+  $END$ 이게 보이시면 세팅이 끝났습니다
+<%--  이 주석이 보이시면 pull을 제대로 받으신겁니다--%>
   </body>
 </html>
