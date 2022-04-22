@@ -32,6 +32,6 @@ public class Config {
 		}
 		return conn; //DB 사용을 요구했던 메소드에게 로그인 정보를 돌려줌.
 		test123323dfa
-	}
+	}dfadf
 
 }
