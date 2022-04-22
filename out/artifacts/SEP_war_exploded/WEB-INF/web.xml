@@ -12,7 +12,7 @@
     <!--2번 호출인가?-->
     <servlet>
         <servlet-name>Controller</servlet-name>
-        <servlet-class>kr.ac.kyonggi.avocado_consol.common.controller.Controller</servlet-class>
+        <servlet-class>common.controller.Controller</servlet-class>
     </servlet>
 
     <!--1번 URL패턴 감지-->

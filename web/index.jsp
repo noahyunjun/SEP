@@ -14,6 +14,9 @@
   dddadasdasdasd
   $END$ 이게 보이시면 세팅이 끝났습니다
 
-  window.location.href = 'main.kgu';
+
   </body>
+<script>
+  window.location.href = 'main.avocado';
+</script>
 </html>
