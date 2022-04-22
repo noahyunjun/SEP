@@ -18,7 +18,7 @@
     <!--1번 URL패턴 감지-->
     <servlet-mapping>
         <servlet-name>Controller</servlet-name>
-        <url-pattern>*.avocado</url-pattern>
+        <url-pattern>*.sep</url-pattern>
     </servlet-mapping>
     <filter>
         <filter-name>httpHeaderSecurity</filter-name>

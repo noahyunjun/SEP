@@ -19,8 +19,8 @@ public class Config {
 	// DB 커넥션 Variable
 	private Connection conn = null;
 	// DB 정보
-//	private String url ="jdbc:mariadb://localhost:3306/avocado?user=root&password=****";
-	private String url ="jdbc:mariadb://localhost:3306/avocado?user=root&password=NewSt@rt!70";
+//	private String url ="jdbc:mariadb://localhost:3306/sep?user=root&password=****";
+	private String url ="jdbc:mariadb://localhost:3306/sep?user=root&password=NewSt@rt!70";
 
 	public Connection sqlLogin() {
 		try {

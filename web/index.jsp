@@ -17,6 +17,6 @@
 
   </body>
 <script>
-  window.location.href = 'main.avocado';
+  window.location.href = 'main.sep';
 </script>
 </html>
