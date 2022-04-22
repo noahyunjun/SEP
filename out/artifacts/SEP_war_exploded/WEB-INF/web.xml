@@ -3,50 +3,50 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
-<!--    <display-name>Apache-Axis</display-name>-->
-<!--    <servlet>-->
-<!--        <display-name>Apache-Axis Servlet</display-name>-->
-<!--        <servlet-name>AxisServlet</servlet-name>-->
-<!--        <servlet-class>org.apache.axis.transport.http.AxisServlet</servlet-class>-->
-<!--    </servlet>-->
-<!--    <servlet>-->
-<!--        <display-name>Axis Admin Servlet</display-name>-->
-<!--        <servlet-name>AdminServlet</servlet-name>-->
-<!--        <servlet-class>org.apache.axis.transport.http.AdminServlet</servlet-class>-->
-<!--        <load-on-startup>100</load-on-startup>-->
-<!--    </servlet>-->
-<!--    <servlet>-->
-<!--        <display-name>SOAPMonitorService</display-name>-->
-<!--        <servlet-name>SOAPMonitorService</servlet-name>-->
-<!--        <servlet-class>org.apache.axis.monitor.SOAPMonitorService</servlet-class>-->
-<!--        <init-param>-->
-<!--            <param-name>SOAPMonitorPort</param-name>-->
-<!--            <param-value>5101</param-value>-->
-<!--        </init-param>-->
-<!--        <load-on-startup>100</load-on-startup>-->
-<!--    </servlet>-->
-<!--    <servlet-mapping>-->
-<!--        <servlet-name>AxisServlet</servlet-name>-->
-<!--        <url-pattern>/servlet/AxisServlet</url-pattern>-->
-<!--    </servlet-mapping>-->
-<!--    <servlet-mapping>-->
-<!--        <servlet-name>AxisServlet</servlet-name>-->
-<!--        <url-pattern>*.jws</url-pattern>-->
-<!--    </servlet-mapping>-->
-<!--    <servlet-mapping>-->
-<!--        <servlet-name>AxisServlet</servlet-name>-->
-<!--        <url-pattern>/services/*</url-pattern>-->
-<!--    </servlet-mapping>-->
-<!--    <servlet-mapping>-->
-<!--        <servlet-name>SOAPMonitorService</servlet-name>-->
-<!--        <url-pattern>/SOAPMonitor</url-pattern>-->
-<!--    </servlet-mapping>-->
-<!--    <servlet-mapping>-->
-<!--        <servlet-name>AdminServlet</servlet-name>-->
-<!--        <url-pattern>/servlet/AdminServlet</url-pattern>-->
-<!--    </servlet-mapping>-->
-<!--    <mime-mapping>-->
-<!--        <extension>wsdl</extension>-->
-<!--        <mime-type>text/xml</mime-type>-->
-<!--    </mime-mapping>-->
+
+    <!--맨 처음에 어떤 파일을 킬거냐 처음 보여줄 페이지를 지정 -> 메인페이지를 그냥 써서 없어도 되는데 팀장님은 다른 페이지 하나를 만드는 걸 선호하셔서 -->
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <!--2번 호출인가?-->
+    <servlet>
+        <servlet-name>Controller</servlet-name>
+        <servlet-class>kr.ac.kyonggi.avocado_consol.common.controller.Controller</servlet-class>
+    </servlet>
+
+    <!--1번 URL패턴 감지-->
+    <servlet-mapping>
+        <servlet-name>Controller</servlet-name>
+        <url-pattern>*.avocado</url-pattern>
+    </servlet-mapping>
+    <filter>
+        <filter-name>httpHeaderSecurity</filter-name>
+        <filter-class>org.apache.catalina.filters.HttpHeaderSecurityFilter</filter-class>
+        <init-param>
+            <param-name>antiClickJackingOption</param-name>
+            <param-value>SAMEORIGIN</param-value>
+        </init-param>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>httpHeaderSecurity</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
+<!--    <error-page>-->
+<!--        <error-code>404</error-code>-->
+<!--        <location>/WEB-INF/jsp/main/error.jsp</location>-->
+<!--    </error-page>-->
+<!--    <error-page>-->
+<!--        <error-code>500</error-code>-->
+<!--        <location>/WEB-INF/jsp/main/error.jsp</location>-->
+<!--    </error-page>-->
+<!--    <error-page>-->
+<!--        <exception-type>java.lang.Exception</exception-type>-->
+<!--        <location>/WEB-INF/jsp/main/error.jsp</location>-->
+<!--    </error-page>-->
 </web-app>
