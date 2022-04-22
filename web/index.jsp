@@ -11,10 +11,9 @@
     <title>$Title$</title>
   </head>
   <body>
-  dddadasdasdasd
-  $END$ 이게 보이시면 세팅이 끝났습니다
+  테스트를 위해 넣어봅니다
 
-
+ddf
   </body>
 <script>
   window.location.href = 'main.sep';
