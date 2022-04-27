@@ -24,6 +24,7 @@
       <root url="jar://$PROJECT_DIR$/lib/poi-scratchpad-3.17.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/standard.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/tomcat-catalina-9.0.21.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/mysql-connector-java-5.1.49-bin.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
