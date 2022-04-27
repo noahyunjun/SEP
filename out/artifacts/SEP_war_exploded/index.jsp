@@ -11,11 +11,7 @@
     <title>$Title$</title>
   </head>
   <body>
-  dddadasdasdasd
-  $END$ 이게 보이시면 세팅이 끝났습니다
-
-
-  </body>
+경  </body>
 <script>
   window.location.href = 'main.sep';
 </script>
