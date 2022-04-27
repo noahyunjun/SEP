@@ -12,7 +12,7 @@ public class Config {
 	private static class Singleton {
 		private static final Config instance = new Config();
 	}
-	
+
 	public static Config getInstance() {
 		return Singleton.instance;
 	}
@@ -20,15 +20,15 @@ public class Config {
 	private Connection conn = null;
 	// DB 정보
 //	private String url ="jdbc:mariadb://localhost:3306/sep?user=root&password=****";
-	private String url ="jdbc:mariadb://localhost:3306/SEproject_DB?user=root&password=";
+	private String url ="jdbc:mysql://localhost:3306/SEproject_DB?user=root&password=NewSt@rt!70";
 
 	public Connection sqlLogin() {
 		try {
-			Class.forName("org.mariadb.jdbc.Driver");
+			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(url);
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("DB 연결 실패. mariaDB의 아이디 비밀번호가 Config 클래스와 일치하는지 확인해주세요.");
+			System.out.println("DB 연결 실패. mysql 아이디 비밀번호가 Config 클래스와 일치하는지 확인해주세요.");
 		}
 		return conn; //DB 사용을 요구했던 메소드에게 로그인 정보를 돌려줌.
 
