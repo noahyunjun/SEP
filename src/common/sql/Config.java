@@ -20,7 +20,7 @@ public class Config {
 	private Connection conn = null;
 	// DB 정보
 //	private String url ="jdbc:mariadb://localhost:3306/sep?user=root&password=****";
-	private String url ="jdbc:mysql://localhost:3306/SEproject_DB?user=root&password=";
+	private String url ="jdbc:mysql://localhost:3306/sedb?useSSL=false&user=root&password=NewSt@rt!70";
 
 	public Connection sqlLogin() {
 		try {
