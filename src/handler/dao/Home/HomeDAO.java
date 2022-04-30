@@ -29,15 +29,15 @@ public class HomeDAO {
         String id = arr[0];
         String password = arr[1];
         // 스플릿을 활용하여 한줄로된 아이디와 비밀번호 쪼개줌.
-        System.out.println("id: "+arr[0]);
-        System.out.println("pw: "+arr[1]);
+        System.out.println("id: " + arr[0]);
+        System.out.println("pw: " + arr[1]);
 
         ArrayList<UserDTO> result = null;
         List<Map<String, Object>> list = null;
         Connection conn = Config.getInstance().sqlLogin();
         try {
             QueryRunner que = new QueryRunner();
-            list = que.query(conn, "SELECT * FROM sedb.users WHERE id=?;", new MapListHandler(), id);
+            list = que.query(conn, "SELECT * FROM users WHERE id=?;", new MapListHandler(), id);
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -45,10 +45,12 @@ public class HomeDAO {
         }
 //        System.out.println(list);
         if (list.size() > 0) {//입력한 id가 존재할 때
+            System.out.println("id is exist");
             Gson gson = new Gson();
             result = gson.fromJson(gson.toJson(list), new TypeToken<List<UserDTO>>() {
             }.getType());
             String realPassword = result.get(0).getPassword();
+            System.out.println("realPassword :"+realPassword);
             if (password.equals(realPassword)) {
                 return true; //로그인 성공
             }
@@ -85,18 +87,15 @@ public class HomeDAO {
         String name = arr[0];
         String id = arr[1];
         String pw = arr[2];
-        System.out.println("//"+arr[0]+"//"+arr[1]+"//"+arr[2]);
+        System.out.println("//" + arr[0] + "//" + arr[1] + "//" + arr[2]);
         try {
             QueryRunner que = new QueryRunner();
             list = que.query(conn, "SELECT * FROM users WHERE id=?;", new MapListHandler(), id);
-            if(list.size()==0){ //존재하지 않는 아이디의 경우
+            if (list.size() == 0) { //존재하지 않는 아이디의 경우
                 que.update(conn, "INSERT users SET user_name=?, id=?, pw=?;", name, id, pw);
-//insert into User(id, password, type, name, birthDay, phoneNumber, blackList) values('admin', 'admin', '관리자', '홈페이지관리자', '2021-05-10', '010-0000-0000', false);
-            }
-            else {
+            } else {
                 return "실패";
             }
-            
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -111,7 +110,7 @@ public class HomeDAO {
         Connection conn = Config.getInstance().sqlLogin();
         try {
             QueryRunner queryRunner = new QueryRunner();
-            list = queryRunner.query(conn, "SELECT * FROM User", new MapListHandler());
+            list = queryRunner.query(conn, "SELECT * FROM users", new MapListHandler());
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -132,7 +131,7 @@ public class HomeDAO {
         Connection conn = Config.getInstance().sqlLogin();
         try {
             QueryRunner queryRunner = new QueryRunner();
-            queryRunner.query(conn, "DELETE FROM User WHERE id=?", new MapListHandler(), id);
+            queryRunner.query(conn, "DELETE FROM users WHERE id=?", new MapListHandler(), id);
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -146,7 +145,7 @@ public class HomeDAO {
         String password = "0000";
         try {
             QueryRunner queryRunner = new QueryRunner();
-            queryRunner.query(conn, "UPDATE User SET password=? WHERE id=?", new MapListHandler(), password, id);
+            queryRunner.query(conn, "UPDATE users SET pw=? WHERE id=?", new MapListHandler(), password, id);
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -154,47 +153,5 @@ public class HomeDAO {
         }
     }
 
-    public void typeChange(String data) { //Type 변경     관리자 <-> 손님
-        String arr[] = data.split("-/-/-"); // 0 id, 1 type
-        String id = arr[0];
-        String type = arr[1];
-//        System.out.println(id +" "+ type);
-        Connection conn = Config.getInstance().sqlLogin();
-        try {
-            QueryRunner queryRunner = new QueryRunner();
-            if (type.equals("관리자")) {
-                queryRunner.query(conn, "UPDATE User SET type=? WHERE id=?", new MapListHandler(), "손님", id);
-            } else { //손님
-                queryRunner.query(conn, "UPDATE User SET type=? WHERE id=?", new MapListHandler(), "관리자", id);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            DbUtils.closeQuietly(conn);
-        }
-    }
-
-    public String changeBlacklist(String data) { //Type 변경     관리자 <-> 손님
-        String arr[] = data.split("-/-/-"); // 0 id, 1 type
-        String id = arr[0];
-        String blackList = arr[1];
-        //System.out.println(id +" "+ blackList);
-        Connection conn = Config.getInstance().sqlLogin();
-        try {
-            QueryRunner queryRunner = new QueryRunner();
-            if (blackList.equals("true")) {
-                queryRunner.query(conn, "UPDATE User SET blackList=? WHERE id=?", new MapListHandler(), "false", id);
-                return "false";
-            } else { //손님
-                queryRunner.query(conn, "UPDATE User SET blackList=? WHERE id=?", new MapListHandler(), "true", id);
-                return "true";
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            DbUtils.closeQuietly(conn);
-        }
-        return "";
-    }
 
 }
