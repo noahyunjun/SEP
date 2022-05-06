@@ -6,18 +6,11 @@ public class UserDTO {
     private String password;
     private String type;
     private String name;
-    private String birthDay;
     private String phoneNumber;
     private String blackList;
     private String point;
+    private String result;
 
-    public String getPoint() {
-        return point;
-    }
-
-    public void setPoint(String point) {
-        this.point = point;
-    }
 
     public String getOid() {
         return oid;
@@ -59,14 +52,6 @@ public class UserDTO {
         this.name = name;
     }
 
-    public String getBirthDay() {
-        return birthDay;
-    }
-
-    public void setBirthDay(String birthDay) {
-        this.birthDay = birthDay;
-    }
-
     public String getPhoneNumber() {
         return phoneNumber;
     }
@@ -81,5 +66,21 @@ public class UserDTO {
 
     public void setBlackList(String blackList) {
         this.blackList = blackList;
+    }
+
+    public String getPoint() {
+        return point;
+    }
+
+    public void setPoint(String point) {
+        this.point = point;
+    }
+
+    public String getResult() {
+        return result;
+    }
+
+    public void setResult(String result) {
+        this.result = result;
     }
 }

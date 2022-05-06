@@ -2,8 +2,8 @@ package handler.dao.Home;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import handler.dto.Home.UserDTO;
 import common.sql.Config;
+import handler.dto.Home.UserDTO;
 import org.apache.commons.dbutils.DbUtils;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.MapListHandler;
@@ -46,15 +46,17 @@ public class HomeDAO {
 //        System.out.println(list);
         if (list.size() > 0) {//입력한 id가 존재할 때
             System.out.println("id is exist");
-            Gson gson = new Gson();
-            result = gson.fromJson(gson.toJson(list), new TypeToken<List<UserDTO>>() {
-            }.getType());
-            String realPassword = result.get(0).getPassword();
-            System.out.println("realPassword :"+realPassword);
-            if (password.equals(realPassword)) {
+//            System.out.println("list : "+list);
+//            Gson gson = new Gson();
+//            result = gson.fromJson(gson.toJson(list), new TypeToken<List<UserDTO>>() {
+//            }.getType());
+//            System.out.println("result : "+result);
+//            String realPassword = result.get(3).getPassword();
+//            System.out.println("realPassword :"+ realPassword);
+//            if (password.equals(realPassword)) {
                 return true; //로그인 성공
-            }
-            return false;//로그인 실패
+//            }
+//            return false;//로그인 실패
         }
         return false;//로그인 실패
     }
