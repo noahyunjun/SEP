@@ -35,6 +35,7 @@ public class AjaxAction implements Action {
                 LoginManager manager = LoginManager.getInstance();
                 System.out.println(data);
                 Boolean check = HomeDAO.getInstance().loginCheck(data); //받은 데이터를 일단 loginCheck으로 넘겨서 이 아이디와 비밀번호가 유효한지 검사합니다.
+                System.out.println("check: "+check);
                 if (check==false){ //로그인정보 미일치 시
                     return "실패";//실패했다는걸 JSP에게 알려줘야합니다.
                 }
@@ -57,12 +58,6 @@ public class AjaxAction implements Action {
                 break;
             case "pwReset": //특정 id의 password를 리셋 합니다.
                 HomeDAO.getInstance().passwordReset(data);
-                break;
-            case"changeBlacklist":  //특정 id의 blackList 여부를 수정합니다.
-                result = HomeDAO.getInstance().changeBlacklist(data);
-                break;
-            case "typeChange": //특정 id의 type을 변경합니다.
-                HomeDAO.getInstance().typeChange(data);
                 break;
             case "reservationRequest":
                 result=ReservationDAO.getInstance().addReservationRequest(data);
