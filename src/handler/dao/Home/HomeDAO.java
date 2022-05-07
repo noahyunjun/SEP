@@ -33,30 +33,34 @@ public class HomeDAO {
         System.out.println("pw: " + arr[1]);
 
         ArrayList<UserDTO> result = null;
+        ArrayList<UserDTO> test = null;
         List<Map<String, Object>> list = null;
         Connection conn = Config.getInstance().sqlLogin();
         try {
             QueryRunner que = new QueryRunner();
             list = que.query(conn, "SELECT * FROM users WHERE id=?;", new MapListHandler(), id);
+
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             DbUtils.closeQuietly(conn);
         }
-//        System.out.println(list);
+        System.out.println(list);
         if (list.size() > 0) {//입력한 id가 존재할 때
             System.out.println("id is exist");
-//            System.out.println("list : "+list);
-//            Gson gson = new Gson();
-//            result = gson.fromJson(gson.toJson(list), new TypeToken<List<UserDTO>>() {
-//            }.getType());
-//            System.out.println("result : "+result);
-//            String realPassword = result.get(3).getPassword();
-//            System.out.println("realPassword :"+ realPassword);
-//            if (password.equals(realPassword)) {
-                return true; //로그인 성공
-//            }
-//            return false;//로그인 실패
+            System.out.println("list : "+list);
+            Gson gson = new Gson();
+            result = gson.fromJson(gson.toJson(list), new TypeToken<List<UserDTO>>() {
+            }.getType());
+            test = gson.fromJson(gson.toJson(list), new TypeToken<List<UserDTO>>(){}.getType());
+            System.out.println("test :" + test);
+            System.out.println("result : "+result);
+            String realPassword = result.get(0).getPw();
+            System.out.println("realPassword :"+ realPassword);
+            if (password.equals(realPassword)) {
+                return true; //로그인 성공4
+            }
+            return false;//로그인 실패
         }
         return false;//로그인 실패
     }
