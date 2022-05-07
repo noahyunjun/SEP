@@ -29,15 +29,17 @@ public class HomeDAO {
         String id = arr[0];
         String password = arr[1];
         // 스플릿을 활용하여 한줄로된 아이디와 비밀번호 쪼개줌.
-        System.out.println("id: " + arr[0]);
-        System.out.println("pw: " + arr[1]);
+//        System.out.println("id: " + arr[0]);
+//        System.out.println("pw: " + arr[1]);
 
         ArrayList<UserDTO> result = null;
+        ArrayList<UserDTO> test = null;
         List<Map<String, Object>> list = null;
         Connection conn = Config.getInstance().sqlLogin();
         try {
             QueryRunner que = new QueryRunner();
             list = que.query(conn, "SELECT * FROM users WHERE id=?;", new MapListHandler(), id);
+
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -45,18 +47,20 @@ public class HomeDAO {
         }
 //        System.out.println(list);
         if (list.size() > 0) {//입력한 id가 존재할 때
-            System.out.println("id is exist");
+//            System.out.println("id is exist");
 //            System.out.println("list : "+list);
-//            Gson gson = new Gson();
-//            result = gson.fromJson(gson.toJson(list), new TypeToken<List<UserDTO>>() {
-//            }.getType());
+            Gson gson = new Gson();
+            result = gson.fromJson(gson.toJson(list), new TypeToken<List<UserDTO>>() {
+            }.getType());
+            test = gson.fromJson(gson.toJson(list), new TypeToken<List<UserDTO>>(){}.getType());
+//            System.out.println("test :" + test);
 //            System.out.println("result : "+result);
-//            String realPassword = result.get(3).getPassword();
+            String realPassword = result.get(0).getPw();
 //            System.out.println("realPassword :"+ realPassword);
-//            if (password.equals(realPassword)) {
+            if (password.equals(realPassword)) {
                 return true; //로그인 성공
-//            }
-//            return false;//로그인 실패
+            }// 굳이 이렇게 하는건, return 값으로 ture와 false값을 보내주기 위해서.
+            return false;//로그인 실패
         }
         return false;//로그인 실패
     }
@@ -89,7 +93,7 @@ public class HomeDAO {
         String name = arr[0];
         String id = arr[1];
         String pw = arr[2];
-        System.out.println("//" + arr[0] + "//" + arr[1] + "//" + arr[2]);
+//        System.out.println("//" + arr[0] + "//" + arr[1] + "//" + arr[2]);
         try {
             QueryRunner que = new QueryRunner();
             list = que.query(conn, "SELECT * FROM users WHERE id=?;", new MapListHandler(), id);
@@ -124,7 +128,7 @@ public class HomeDAO {
         if (selected.size() > 0) {
             return selected;
         } else {
-            System.out.println("Not selected");
+//            System.out.println("Not selected");
             return null;
         }
     }

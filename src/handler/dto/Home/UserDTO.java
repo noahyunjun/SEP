@@ -3,14 +3,7 @@ package handler.dto.Home;
 public class UserDTO {
     private String oid;
     private String id;
-    private String password;
-    private String type;
-    private String name;
-    private String phoneNumber;
-    private String blackList;
-    private String point;
-    private String result;
-
+    private String pw;
 
     public String getOid() {
         return oid;
@@ -28,12 +21,12 @@ public class UserDTO {
         this.id = id;
     }
 
-    public String getPassword() {
-        return password;
+    public String getPw() {
+        return pw;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPw(String pw) {
+        this.pw = pw;
     }
 
     public String getType() {
@@ -83,4 +76,13 @@ public class UserDTO {
     public void setResult(String result) {
         this.result = result;
     }
+
+    private String type;
+    private String name;
+    private String phoneNumber;
+    private String blackList;
+    private String point;
+    private String result;
+
+
 }
