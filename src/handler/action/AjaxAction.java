@@ -23,7 +23,7 @@ public class AjaxAction implements Action {
 
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
         Gson gson = new Gson();
-        System.out.println("1번실행");
+//        System.out.println("1번실행");
         String req = request.getParameter("req"); //JSP에서 넘겨준 req
         String data = request.getParameter("data"); //JSP에서 넘겨준 data
         HttpSession session = request.getSession(); //Session에 있는 정보로 뭔가 해야할 때 사용
@@ -33,9 +33,9 @@ public class AjaxAction implements Action {
             //User 정보 관련
             case "login": //로그인을 가능 여부를 판단하고, 로그인에 성공하는 경우 세션을 업데이트 합니다.
                 LoginManager manager = LoginManager.getInstance();
-                System.out.println(data);
+//                System.out.println(data);
                 Boolean check = HomeDAO.getInstance().loginCheck(data); //받은 데이터를 일단 loginCheck으로 넘겨서 이 아이디와 비밀번호가 유효한지 검사합니다.
-                System.out.println("check: "+check);
+//                System.out.println("check: "+check);
                 if (check==false){ //로그인정보 미일치 시
                     return "실패";//실패했다는걸 JSP에게 알려줘야합니다.
                 }
@@ -51,7 +51,7 @@ public class AjaxAction implements Action {
                 }
             case "signup"://회원가입 시 입력된 정보를 한 줄로 보내줍니다.
                 result = HomeDAO.getInstance().signUp(data);
-                System.out.println(data);
+//                System.out.println(data);
                 break;
             case "deleteUser"://특정 id의 계정을 삭제합니다.
                 HomeDAO.getInstance().deleteUser(data);
@@ -61,7 +61,7 @@ public class AjaxAction implements Action {
                 break;
             case "reservationRequest":
                 result=ReservationDAO.getInstance().addReservationRequest(data);
-                System.out.println(result);
+//                System.out.println(result);
                 break;
             case "checkReservationRequest":
                 result=ReservationDAO.getInstance().checkReservationRequest(data);
@@ -86,7 +86,7 @@ public class AjaxAction implements Action {
                 break;
             case "deleteTable":
                 result=TableDAO.getInstance().deleteTable(data);
-                System.out.println(data);
+//                System.out.println(data);
                 break;
             case "modifyTable":
                 result=TableDAO.getInstance().modifyTable(data);

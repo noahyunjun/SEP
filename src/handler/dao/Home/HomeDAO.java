@@ -45,7 +45,7 @@ public class HomeDAO {
         } finally {
             DbUtils.closeQuietly(conn);
         }
-        System.out.println(list);
+//        System.out.println(list);
         if (list.size() > 0) {//입력한 id가 존재할 때
 //            System.out.println("id is exist");
 //            System.out.println("list : "+list);
@@ -93,7 +93,7 @@ public class HomeDAO {
         String name = arr[0];
         String id = arr[1];
         String pw = arr[2];
-        System.out.println("//" + arr[0] + "//" + arr[1] + "//" + arr[2]);
+//        System.out.println("//" + arr[0] + "//" + arr[1] + "//" + arr[2]);
         try {
             QueryRunner que = new QueryRunner();
             list = que.query(conn, "SELECT * FROM users WHERE id=?;", new MapListHandler(), id);
@@ -128,7 +128,7 @@ public class HomeDAO {
         if (selected.size() > 0) {
             return selected;
         } else {
-            System.out.println("Not selected");
+//            System.out.println("Not selected");
             return null;
         }
     }
