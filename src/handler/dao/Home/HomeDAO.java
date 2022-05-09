@@ -29,8 +29,8 @@ public class HomeDAO {
         String id = arr[0];
         String password = arr[1];
         // 스플릿을 활용하여 한줄로된 아이디와 비밀번호 쪼개줌.
-        System.out.println("id: " + arr[0]);
-        System.out.println("pw: " + arr[1]);
+//        System.out.println("id: " + arr[0]);
+//        System.out.println("pw: " + arr[1]);
 
         ArrayList<UserDTO> result = null;
         List<Map<String, Object>> list = null;
@@ -44,16 +44,16 @@ public class HomeDAO {
         } finally {
             DbUtils.closeQuietly(conn);
         }
-        System.out.println(list);
+//        System.out.println(list);
         if (list.size() > 0) {//입력한 id가 존재할 때
-            System.out.println("id is exist");
-            System.out.println("list : "+list);
+//            System.out.println("id is exist");
+//            System.out.println("list : "+list);
             Gson gson = new Gson();
             result = gson.fromJson(gson.toJson(list), new TypeToken<List<UserDTO>>() {
             }.getType());
-            System.out.println("result : "+result);
+//            System.out.println("result : "+result);
             String realPassword = result.get(0).getPw();
-            System.out.println("realPassword :"+ realPassword);
+//            System.out.println("realPassword :"+ realPassword);
             if (password.equals(realPassword)) {
                 return true; //로그인 성공
             }// 굳이 이렇게 하는건, return 값으로 ture와 false값을 보내주기 위해서.
