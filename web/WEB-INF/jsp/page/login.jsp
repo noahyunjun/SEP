@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Gabriel Yoon
-  Date: 2021-05-05
-  Time: 오후 4:34
-  To change this template use File | Settings | File Templates.
---%>
+
 <%
     /**
      * login시 입력한 ID와 PW를 한줄의 String으로 만들어서 AjaxAction 클래스로 보냅니다.
@@ -45,7 +39,7 @@
                 가입하기</a>
         </div>
 
-
+<%--로그인 완료시 error page 대신 이미 로그인되었다는 modal 띄우기--%>
         <%--        class="w-100 btn btn-lg btn-dark" style="font-family: 'Noto Serif KR', serif;"--%>
 <%--        onclick="button()"--%>
     </form>
