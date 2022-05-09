@@ -29,7 +29,7 @@ public class ReservationDAO {
         Connection conn = Config.getInstance().sqlLogin();
         try {
             QueryRunner queryRunner = new QueryRunner();
-            list = queryRunner.query(conn, "SELECT * FROM ReservationRequest", new MapListHandler());
+            list = queryRunner.query(conn, "SELECT * FROM reservations", new MapListHandler());
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -38,8 +38,8 @@ public class ReservationDAO {
         Gson gson = new Gson();
         result = gson.fromJson(gson.toJson(list), new TypeToken<List<ReservationRequestDTO>>() {
         }.getType());
-       // System.out.println(list);
-       // System.out.println(result.get(0).getDate());
+        System.out.println(list);
+        System.out.println(result.get(0).getDate());
         return result;
     }
     public ArrayList<ReservationRequestDTO> getUserReservationRequest(String id) {  //고객 예약 리스트 db 불러오기
@@ -48,7 +48,7 @@ public class ReservationDAO {
         Connection conn = Config.getInstance().sqlLogin();
         try {
             QueryRunner queryRunner = new QueryRunner();
-            list = queryRunner.query(conn, "SELECT * FROM ReservationRequest WHERE customer_id=?", new MapListHandler(), id);
+            list = queryRunner.query(conn, "SELECT * FROM reservations WHERE reservation_user=?", new MapListHandler(), id);
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -67,7 +67,7 @@ public class ReservationDAO {
         Connection conn = Config.getInstance().sqlLogin();
         try {
             QueryRunner queryRunner = new QueryRunner();
-            list = queryRunner.query(conn, "SELECT * FROM Reservation WHERE customer_id=?", new MapListHandler(), id);
+            list = queryRunner.query(conn, "SELECT * FROM reservations WHERE reservation_user=?", new MapListHandler(), id);
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -81,14 +81,14 @@ public class ReservationDAO {
         return result;
     }
 
-
+//여기 수정 필요.
     public ArrayList<ReservationDTO> getReservationList(String date) {  //고객 예약 리스트 db 불러오기
         ArrayList<ReservationDTO> result = null;
         List<Map<String, Object>> list = null;
         Connection conn = Config.getInstance().sqlLogin();
         try {
             QueryRunner queryRunner = new QueryRunner();
-            list = queryRunner.query(conn, "SELECT * FROM Reservation WHERE date=?", new MapListHandler(), date);
+            list = queryRunner.query(conn, "SELECT * FROM reservations WHERE date=?", new MapListHandler(), date);
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -103,15 +103,14 @@ public class ReservationDAO {
     }
     public String addReservationRequest(String data) {    //고객 예약 요청 리스트 추가
         System.out.println(data);
-        String arr[] = data.split("-/-/-"); //data = covers+"-/-/-"+date+"-/-/-"+time+"-/-/-"+user.name+"-/-/-"+user.id+"-/-/-"+message;
-        String covers = arr[0];
-        String date = arr[1];
-        String time = arr[2];
-        String name = arr[3];
-        String id = arr[4];
-        String message = arr[5];
+        String[] arr = data.split("-/-/-"); //data = covers+"-/-/-"+date+"-/-/-"+time+"-/-/-"+user.name+"-/-/-"+user.id+"-/-/-"+message;
+//        String covers = arr[0];
+        String date = arr[0];
+        String time = arr[1];
+        String name = arr[2];
+        String id = arr[3];
         List<Map<String, Object>> check_reservation = null;
-        List<Map<String, Object>> check_walkIn = null;
+        List<Map<String, Object>> check_walkIn = null;//도착을 했는가?
         List<Map<String, Object>> table = null;
         Random random = new Random();
         int verifyCode=random.nextInt(100000000);
@@ -119,17 +118,17 @@ public class ReservationDAO {
         List<Map<String, Object>> list = null;
         try{
             QueryRunner que = new QueryRunner();
-            table=que.query(conn,"SELECT * FROM `Table`",new MapListHandler());
-            check_reservation=que.query(conn,"SELECT * FROM Reservation WHERE date=? AND time=?", new MapListHandler(),
+            table=que.query(conn,"SELECT * FROM restaurant_table",new MapListHandler());
+            check_reservation=que.query(conn,"SELECT * FROM reservations WHERE reservations_date=? AND reservations_time=?", new MapListHandler(),
                     date,time);
-            check_walkIn=que.query(conn,"SELECT * FROM WalkIn WHERE date=? AND time=?", new MapListHandler(),
+            check_walkIn=que.query(conn,"SELECT * FROM reservations WHERE reservations_date=? AND reservations_time=?", new MapListHandler(),
                     date,time);
             if(check_reservation.size()+check_walkIn.size()==table.size()){
                 return "-1";
             }
             else {
                 que.query(conn, "INSERT ReservationRequest SET covers=?, date=?,time=?,customer_name=?,customer_id=?, message=?, verifyCode=?;", new MapListHandler(),
-                        covers, date, time, name, id, message, verifyCode);
+                         date, time, name, id, verifyCode);
 //          System.out.println("ddd");
                 list = que.query(conn, "SELECT * FROM ReservationRequest WHERE verifyCode=?", new MapListHandler(), verifyCode);
             }
@@ -173,17 +172,7 @@ public class ReservationDAO {
     public String addReservation(String data) {    //고객 예약 요청 리스트 추가
         String arr[] = data.split("-/-/-"); //order.covers+"-/-/-"+order.date+"-/-/-"+order.time+"-/-/-"+order.customer_id;+"-/-/-"+order.customer_name
         String covers = arr[0];
-        //	5월 26, 2021
-//        String newDate[]=arr[1].split(", ");
-//        String mmddyy[]=newDate[0].split("월 ");
-//        mmddyy[2]=newDate[1];
-//        if(mmddyy[1].length()<2)
-//            mmddyy[1]="0"+mmddyy[1];
-//        String date = mmddyy[2]+"-"+mmddyy[0]+"-"+mmddyy[1];
         String date = arr[1];
-//        String[] array = date.split("월 ");          // array[0]는 월, array[1]은 일이랑 년도
-//        String[] array2 =array[1].split(", ");      //array2[0]는 일, array2[1]는 년도
-//        date = array2[1]+"-"+array[0]+"-"+array2[0];
         String time = arr[2];
         String id = arr[3];
         String name=arr[4];
@@ -224,7 +213,9 @@ public class ReservationDAO {
         String arr[] = data.split("-/-/-");
         String time=arr[0];
         String date=arr[1];
-        System.out.println(time);
+        //selectTime에서 받아온 time과 date를 split해서 배열에 담는 과정입니다.
+        System.out.println("date: " +date);
+        System.out.println("time: "+time);
         Connection conn = Config.getInstance().sqlLogin();
         List<Map<String, Object>> list = null;
         List<Map<String, Object>> table = null;
@@ -232,9 +223,12 @@ public class ReservationDAO {
         List<Map<String, Object>> check_reservation = null;
         try{
             QueryRunner que = new QueryRunner();
-            table=que.query(conn,"SELECT * FROM `Table`",new MapListHandler());
-            check_reservation_request=que.query(conn,"SELECT * FROM ReservationRequest WHERE date=? AND time=?", new MapListHandler(),date,time);
-            check_reservation=que.query(conn,"SELECT * FROM Reservation WHERE date=? AND time=?", new MapListHandler(),date,time);
+            table=que.query(conn,"SELECT * FROM restaurant_table",new MapListHandler());
+            check_reservation_request=que.query(conn,"SELECT * FROM reservations WHERE reservation_date=? AND reservation_time=?", new MapListHandler(),date,time);
+            check_reservation=que.query(conn,"SELECT * FROM reservations WHERE reservation_date=? AND reservation_time=?", new MapListHandler(),date,time);
+            System.out.println("table : "+table);
+            System.out.println("check request: "+check_reservation_request);
+            System.out.println("check reservation : "+check_reservation);
                 if(check_reservation_request.size()+check_reservation.size()==table.size()){
                     return "-1";
                 }
@@ -245,33 +239,17 @@ public class ReservationDAO {
         finally{
             DbUtils.closeQuietly(conn);
         }
-//        ArrayList<ReservationDTO> result = null;
-//        Gson gson = new Gson();
-//        result = gson.fromJson(gson.toJson(list), new TypeToken<List<ReservationDTO>>() {}.getType());
         return "";
     }
     public String deleteReservation(String data) {    //고객 예약 요청 리스트 추가
-//        System.out.println(data+"아잇!");
-        String arr[] = data.split("-/-/-"); //data=date+"-/-/-"+time+"-/-/-"+table;
+        String[] arr = data.split("-/-/-"); //data=date+"-/-/-"+time+"-/-/-"+table;
         String date = arr[0];
-//        String[] array = date.split("월 ");          // array[0]는 월, array[1]은 일이랑 년도
-//        String[] array2 =array[1].split(", ");      //array2[0]는 일, array2[1]는 년도
-//        if(array[0].length()==1){
-//            array[0]="0"+array[0];
-//        }
-//        if(array2[0].length()==1){
-//            array2[0]="0"+array2[0];
-//        }
-//        date = array2[1]+"-"+array[0]+"-"+array2[0];
-//        System.out.println(date+"아잇!");
         String time=arr[1];
-//        System.out.println(time+"아잇!");
         String table_id=arr[2];
-//        System.out.println(table_id+"아잇!");
         Connection conn = Config.getInstance().sqlLogin();
         try{
             QueryRunner que = new QueryRunner();
-            que.query(conn, "DELETE FROM Reservation WHERE date=? AND time=? AND table_id=?", new MapListHandler(),
+            que.query(conn, "DELETE FROM reservations WHERE reservation_date=? AND reservation_time=? AND table_id=?", new MapListHandler(),
                     date, time, table_id);
         }catch(SQLException e){
             e.printStackTrace();
@@ -281,6 +259,7 @@ public class ReservationDAO {
         }
         return "";
     }
+    //삭제 예정
     public String deleteReservationRequest(String data) {    //고객 예약 요청 리스트 추가
         String arr[] = data.split("-/-/-"); //data=date+"-/-/-"+time
         String date = arr[0];
@@ -288,7 +267,7 @@ public class ReservationDAO {
         Connection conn = Config.getInstance().sqlLogin();
         try{
             QueryRunner que = new QueryRunner();
-            que.query(conn, "DELETE FROM ReservationRequest WHERE date=? AND time=?", new MapListHandler(),
+            que.query(conn, "DELETE FROM reservations WHERE date=? AND time=?", new MapListHandler(),
                     date, time);
         }catch(SQLException e){
             e.printStackTrace();
