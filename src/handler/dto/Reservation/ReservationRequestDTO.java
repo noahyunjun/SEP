@@ -1,57 +1,60 @@
 package handler.dto.Reservation;
 
 public class ReservationRequestDTO {
-    private String oid;
-    private String covers;
-    private String date;
-    private String time;
-    private String customer_name;
-    private String customer_id;
 
-    public String getOid() { return oid; }
+    private String oid;
+    private String reserv_user;
+    private String reserv_userId;
+    private String reserv_date;
+    private String reserv_time;
+    private String r_code;
+    public String getOid() {
+        return oid;
+    }
 
     public void setOid(String oid) {
         this.oid = oid;
     }
 
-    public String getCovers() {
-        return covers;
+    public String getReserv_user() {
+        return reserv_user;
     }
 
-    public void setCovers(String covers) {
-        this.covers = covers;
+    public void setReserv_user(String reserv_user) {
+        this.reserv_user = reserv_user;
     }
 
-    public String getDate() {
-        return date;
+    public String getReserv_userId() {
+        return reserv_userId;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setReserv_userId(String reserv_userId) {
+        this.reserv_userId = reserv_userId;
     }
 
-    public String getTime() {
-        return time;
+    public String getReserv_date() {
+        System.out.println("getReserv 실행");
+        return reserv_date;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    public void setReserv_date(String reserv_date) {
+        this.reserv_date = reserv_date;
     }
 
-    public String getCustomer_name() {
-        return customer_name;
+    public String getReserv_time() {
+        return reserv_time;
     }
 
-    public void setCustomer_name(String customer_name) {
-        this.customer_name = customer_name;
+    public void setReserv_time(String reserv_time) {
+        this.reserv_time = reserv_time;
     }
 
-    public String getCustomer_id() {
-        return customer_id;
+    public String getR_code() {
+        return r_code;
     }
 
-    public void setCustomer_id(String customer_id) {
-        this.customer_id = customer_id;
+    public void setR_code(String r_code) {
+        this.r_code = r_code;
     }
 
     public String getMessage() {
@@ -69,6 +72,7 @@ public class ReservationRequestDTO {
     public void setVerifyCode(String verifyCode) {
         this.verifyCode = verifyCode;
     }
+
 
     private String message;
     private String verifyCode;

@@ -39,7 +39,7 @@ public class ReservationDAO {
         result = gson.fromJson(gson.toJson(list), new TypeToken<List<ReservationRequestDTO>>() {
         }.getType());
         System.out.println(list);
-        System.out.println(result.get(0).getDate());
+        System.out.println(result.get(0).getReserv_date());
         return result;
     }
     public ArrayList<ReservationRequestDTO> getUserReservationRequest(String id) {  //고객 예약 리스트 db 불러오기
@@ -104,7 +104,7 @@ public class ReservationDAO {
     public String addReservationRequest(String data) {    //고객 예약 요청 리스트 추가
         System.out.println(data);
         String[] arr = data.split("-/-/-"); //data = covers+"-/-/-"+date+"-/-/-"+time+"-/-/-"+user.name+"-/-/-"+user.id+"-/-/-"+message;
-//        String covers = arr[0];
+        System.out.println("arr : "+ Arrays.toString(arr));
         String date = arr[0];
         String time = arr[1];
         String name = arr[2];
@@ -119,20 +119,20 @@ public class ReservationDAO {
         try{
             QueryRunner que = new QueryRunner();
             table=que.query(conn,"SELECT * FROM restaurant_table",new MapListHandler());
-            check_reservation=que.query(conn,"SELECT * FROM reservations WHERE reservations_date=? AND reservations_time=?", new MapListHandler(),
+            check_reservation=que.query(conn,"SELECT * FROM reservations WHERE reserv_date=? AND reserv_time=?", new MapListHandler(),
                     date,time);
-            check_walkIn=que.query(conn,"SELECT * FROM reservations WHERE reservations_date=? AND reservations_time=?", new MapListHandler(),
+            check_walkIn=que.query(conn,"SELECT * FROM reservations WHERE reserv_date=? AND reserv_time=?", new MapListHandler(),
                     date,time);
             if(check_reservation.size()+check_walkIn.size()==table.size()){
                 return "-1";
             }
             else {
-                que.query(conn, "INSERT ReservationRequest SET covers=?, date=?,time=?,customer_name=?,customer_id=?, message=?, verifyCode=?;", new MapListHandler(),
-                         date, time, name, id, verifyCode);
-//          System.out.println("ddd");
-                list = que.query(conn, "SELECT * FROM ReservationRequest WHERE verifyCode=?", new MapListHandler(), verifyCode);
+                que.update(conn, "INSERT reservations SET reserv_user=?, reserv_userId=?, reserv_date=?, reserv_time=?, r_code=?;",
+                         name, id, date, time, verifyCode);
+          System.out.println("insert 실행 완료");
+                list = que.query(conn, "SELECT * FROM reservations WHERE r_code=?", new MapListHandler(), verifyCode);
             }
-//          System.out.println(list);
+          System.out.println(list);
         }catch(SQLException e){
             e.printStackTrace();
         }
@@ -142,9 +142,10 @@ public class ReservationDAO {
         ArrayList<ReservationRequestDTO> result = null;
         Gson gson = new Gson();
         result = gson.fromJson(gson.toJson(list), new TypeToken<List<ReservationRequestDTO>>() {}.getType());
-        System.out.println(result.get(0).getOid());
+        System.out.println("result: "+result.get(0).getOid());
         String oid = result.get(0).getOid();
         return oid;
+
     }
 
     public ArrayList<?> getSchedule(String date) {
@@ -170,7 +171,7 @@ public class ReservationDAO {
     }
 
     public String addReservation(String data) {    //고객 예약 요청 리스트 추가
-        String arr[] = data.split("-/-/-"); //order.covers+"-/-/-"+order.date+"-/-/-"+order.time+"-/-/-"+order.customer_id;+"-/-/-"+order.customer_name
+        String[] arr = data.split("-/-/-"); //order.covers+"-/-/-"+order.date+"-/-/-"+order.time+"-/-/-"+order.customer_id;+"-/-/-"+order.customer_name
         String covers = arr[0];
         String date = arr[1];
         String time = arr[2];
@@ -224,8 +225,8 @@ public class ReservationDAO {
         try{
             QueryRunner que = new QueryRunner();
             table=que.query(conn,"SELECT * FROM restaurant_table",new MapListHandler());
-            check_reservation_request=que.query(conn,"SELECT * FROM reservations WHERE reservation_date=? AND reservation_time=?", new MapListHandler(),date,time);
-            check_reservation=que.query(conn,"SELECT * FROM reservations WHERE reservation_date=? AND reservation_time=?", new MapListHandler(),date,time);
+            check_reservation_request=que.query(conn,"SELECT * FROM reservations WHERE reserv_date=? AND reserv_time=?", new MapListHandler(),date,time);
+            check_reservation=que.query(conn,"SELECT * FROM reservations WHERE reserv_date=? AND reserv_time=?", new MapListHandler(),date,time);
             System.out.println("table : "+table);
             System.out.println("check request: "+check_reservation_request);
             System.out.println("check reservation : "+check_reservation);

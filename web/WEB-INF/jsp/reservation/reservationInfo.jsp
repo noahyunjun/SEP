@@ -105,8 +105,9 @@
                     <input type="checkbox" class="form-check-input" id="save-info">
                     <label class="form-check-label" for="save-info" style="font-family: 'Noto Serif KR', serif;">이 정보를 다음에도 사용하시겠습니까?</label>
                 </div>
-            <button></button>
+            <button class="w-100 btn btn-dark btn-lg" style="font-family: 'Noto Serif KR', serif;" onclick="completeReservationRequest()">예약하기</button>
     </main>
+
 </div>
 <%@include file="../common/footer.jsp" %>
 </div>
