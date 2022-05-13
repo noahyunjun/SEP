@@ -25,30 +25,72 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@800&family=Oswald:wght@300&display=swap" rel="stylesheet">
 
+    <!-- Libs CSS -->
+    <link rel="stylesheet" href="../../../assets/libs/ion-rangeslider/css/ion.rangeSlider.min.css">
+    <link rel="stylesheet" href="../../../assets/libs/litepicker/dist/css/litepicker.css">
+    <link rel="stylesheet" href="../../../assets/libs/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet"  href="../../../assets/libs/magnific-popup/dist/magnific-popup.css">
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="../../../assets/css/theme.min.css">
+
+    <!-- Libs JS -->
+    <script src="../../../assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="../../../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../../assets/libs/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="../../../assets/libs/magnific-popup/dist/jquery.magnific-popup.min.js"></script>
+    <script src="../../../assets/libs/prismjs/prism.js"></script>
+    <script src="../../../assets/libs/leaflet/dist/leaflet.js"></script>
+    <script src="../../../assets/libs/litepicker/dist/litepicker.js"></script>
+    <script src="../../../assets/libs/ion-rangeslider/js/ion.rangeSlider.min.js"></script>
+    <script src="../../../assets/libs/inputmask/dist/jquery.inputmask.min.js"></script>
+
+    <!-- clipboard -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"></script>
+
+    <!-- Theme JS -->
+    <script src="../../../assets/js/theme.min.js"></script>
 </head>
 <body>
 <%@include file="../common/header.jsp" %>
 <main class="form-signin">
-    <form>
-        <h1 class="h3 mb-3 fw-normal text-center " style="font-family: 'Noto Serif KR', serif;">Log-In</h1>
-        <div class="form-floating">
-            <input type="text" class="form-control btn-outline-dark " id="floatingInput" placeholder="id">
-            <label for="floatingInput">ID</label>
+    <!-- sign in -->
+    <div class="min-vh-100 d-flex align-items-center " style="background:url(../../../assets/images/signUp.jpg)no-repeat; background-size: cover;">
+        <div class="container">
+            <div class="row">
+                <div class="offset-lg-3 col-lg-6 col-12">
+                    <div class="bg-dark p-4 p-lg-8 rounded-3">
+                        <form>
+                            <h1 class="mb-2 text-white">Welcome</h1>
+                            <p class="mb-4">Today will be great! </p>
+                            <div class="mb-3">
+                                <label for="floatingInput" class="form-label text-white-50">Username </label>
+                                <input type="text" id="floatingInput" class="form-control border-0" placeholder="Username" required="" />
+                            </div>
+                            <div class="mb-3 mb-4">
+                                <label for="floatingPassword" class="form-label  text-white-50">Password</label>
+                                <input type="password" id="floatingPassword" class="form-control border-0" placeholder="Password" required="" />
+                            </div>
+                            <div class="d-grid">
+                                <button class="btn btn-primary" type="submit" id="login_button">
+                                    LOGIN
+                                </button>
+                            </div>
+                            <div class="d-lg-flex justify-content-between mt-4 mb-3 ">
+                                <p class="text-muted font-14">
+                                    Don't have an account yet? <a href="signupPage.sep">Sign up</a>
+                                </p>
+                                <p class="font-14">
+                                    <a href="#">Forget Password</a>
+                                </p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="form-floating">
-            <input type="password" class="form-control btn-outline-dark" id="floatingPassword" placeholder="Password">
-            <label for="floatingPassword">Password</label>
-        </div>
-        <button type="button" id="login_button" >로그인하기</button>
-        <div class="mb-3">
-            <a style="font-size: 20px; color: black; font-family: 'Noto Serif KR', serif;" href="signupPage.sep">회원
-                가입하기</a>
-        </div>
+    </div>
 
-
-        <%--        class="w-100 btn btn-lg btn-dark" style="font-family: 'Noto Serif KR', serif;"--%>
-<%--        onclick="button()"--%>
-    </form>
 </main>
 <script src="js/bootstrap.bundle.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
