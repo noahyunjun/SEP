@@ -205,48 +205,18 @@
                                         <a class="dropdown-item dropdown-toggle" href="#">
                                             Sign In
                                         </a>
-                                        <ul class="dropdown-menu dropdown-menu-lg-right">
-                                            <li>
-                                                <a class="dropdown-item" href="./pages/signin-cover.html">
-                                                    Side Cover </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="./pages/signin.html">
-                                                    Basic</a>
-                                            </li>
-                                        </ul>
                                     </li>
 
                                     <li class="dropdown-submenu ">
                                         <a class="dropdown-item dropdown-toggle" href="#">
                                             Sign Up
                                         </a>
-                                        <ul class="dropdown-menu dropdown-menu-lg-right">
-                                            <li>
-                                                <a class="dropdown-item" href="./pages/signup-cover.html">
-                                                    Side Cover </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="./pages/signup.html">
-                                                    Basic</a>
-                                            </li>
-                                        </ul>
                                     </li>
 
                                     <li class="dropdown-submenu ">
                                         <a class="dropdown-item dropdown-toggle" href="#">
                                             Password Reset
                                         </a>
-                                        <ul class="dropdown-menu dropdown-menu-lg-right">
-                                            <li>
-                                                <a class="dropdown-item" href="./pages/password-reset-cover.html">
-                                                    Side Cover</a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="./pages/password-reset.html">
-                                                    Basic</a>
-                                            </li>
-                                        </ul>
                                     </li>
 
                                 </ul>
