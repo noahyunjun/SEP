@@ -14,22 +14,22 @@
 <footer>
 <%-- 따로 링크 넣을 info나 SNS 링크 없으니 팀플 역할 분담 내용으로
  여백 채워도 좋을 것 같습니다. --%>
-  <div class="footer pt-11 pb-3 bg-dark text-body">
+  <div class="footer pt-5 pb-1 bg-dark text-body">
     <div class="container">
       <div class="row">
         <div class="col-lg-2 col-md-4 col-6">
-          <div class="mb-4">
-            <h4 class="mb-4 text-white">Scrum Master</h4>
+          <div class="mb-3">
+            <h4 class="mb-3 text-white">SM</h4>
             <ul class="list-unstyled list-group">
-              <li class="list-group-item text-white-50">&nbsp;박유빈</li>
+              <li class="list-group-item text-white-50">박유빈</li>
             </ul>
           </div>
         </div>
         <div class="col-lg-2 col-md-4 col-6">
-          <div class="mb-4">
-            <h4 class="mb-4 text-white ">Project Owner</h4>
+          <div class="mb-3">
+            <h4 class="mb-3 text-white ">PO</h4>
             <ul class="list-unstyled list-group ">
-              <li class="list-group-item text-white-50">&nbsp;임원빈</li>
+              <li class="list-group-item text-white-50">임원빈</li>
 <%--              <li class="list-group-item"><a href="#" class="list-group-item-link">Relationship</a></li>--%>
 <%--              <li class="list-group-item"><a href="#" class="list-group-item-link">Leadership</a></li>--%>
 <%--              <li class="list-group-item"><a href="#" class="list-group-item-link">Life Coaching</a></li>--%>
@@ -38,36 +38,36 @@
           </div>
         </div>
         <div class="col-lg-2 col-md-4 col-6">
-          <div class="mb-4">
-            <h4 class="mb-4 text-white">Orderer</h4>
+          <div class="mb-3">
+            <h4 class="mb-3 text-white">발주</h4>
             <ul class="list-unstyled list-group ">
-              <li class="list-group-item text-white-50">&nbsp;김문성</li>
+              <li class="list-group-item text-white-50">김문성</li>
             </ul>
           </div>
         </div>
         <div class="col-lg-2 col-md-4 col-6">
-          <div class="mb-4">
-            <h4 class="mb-4 text-white">Developer</h4>
+          <div class="mb-3">
+            <h4 class="mb-3 text-white">개발</h4>
             <ul class="list-unstyled list-group">
-                <li class="list-group-item text-white-50">&nbsp;함현준</li>
-                <li class="list-group-item text-white-50">&nbsp;조단</li>
-                <li class="list-group-item text-white-50">&nbsp;남원식</li>
-                <li class="list-group-item text-white-50">&nbsp;서아현</li>
-                <li class="list-group-item text-white-50">&nbsp;김용비</li>
+                <li class="list-group-item text-white-50">함현준</li>
+                <li class="list-group-item text-white-50">조단</li>
+                <li class="list-group-item text-white-50">남원식</li>
+                <li class="list-group-item text-white-50">서아현</li>
+                <li class="list-group-item text-white-50">김용비</li>
             </ul>
           </div>
         </div>
-        <div class="col-lg-4 col-md-8 col-12">
-            <div class="mb-4">
-                <h4 class="mb-4 text-white">Quality Assurance</h4>
+        <div class="col-lg-2 col-md-4 col-6">
+            <div class="mb-3">
+                <h4 class="mb-3 text-white">QA</h4>
                 <ul class="list-unstyled list-group">
-                    <li class="list-group-item text-white-50">&nbsp;서아현</li>
-                    <li class="list-group-item text-white-50">&nbsp;김용비</li>
+                    <li class="list-group-item text-white-50">서아현</li>
+                    <li class="list-group-item text-white-50">김용비</li>
                 </ul>
             </div>
         </div>
         <div class="col-md-12">
-          <div class="mt-8">
+          <div class="mt-2">
             <ul class="list-inline">
               <li class="list-inline-item">© 2022 Software Engineering, Team A.</li>
               <li class="list-inline-item">Privacy Policy</li>
