@@ -155,8 +155,9 @@ public class ReservationDAO {
         ArrayList<ReservationRequestDTO> result = null;
         Gson gson = new Gson();
         result = gson.fromJson(gson.toJson(list), new TypeToken<List<ReservationRequestDTO>>() {}.getType());
-        System.out.println("result: "+result.get(0).getOid());
-        String oid = result.get(0).getOid();
+        System.out.println("result: "+result.get(0).getReserv_user());
+        String oid = result.get(0).getReserv_user();
+        System.out.println("oid: "+oid);
         return oid;
 
     }

@@ -182,7 +182,7 @@
                             else {
                                 swal({
                                     title: '예약 성공!',
-                                    text: "[예약번호:" + oid + "]의 예약 요청이 정상적으로 요청되었습니다.",
+                                    text: "[예약자 성함:" + oid + "]의 예약 요청이 정상적으로 요청되었습니다.",
                                     icon: 'success',
                                     button: '확인'
                                 }).then(function () {
