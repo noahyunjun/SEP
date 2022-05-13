@@ -12,6 +12,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200&display=swap" rel="stylesheet">
 </head>
 <footer>
+<%-- 따로 링크 넣을 info나 SNS 링크 없으니 팀플 역할 분담 내용으로
+ 여백 채워도 좋을 것 같습니다. --%>
   <div class="footer pt-11 pb-3 bg-dark text-body">
     <div class="container">
       <div class="row">
@@ -19,7 +21,7 @@
           <div class="mb-4">
             <h4 class="mb-4 text-white">About</h4>
             <ul class="list-unstyled list-group">
-              <li class="list-group-item"><a href="#" class="text-black-50">Meet Coach</a></li>
+              <li class="list-group-item">Meet Coach</li>
 <%--              <li class="list-group-item"><a href="#" class="list-group-item-link">Press</a></li>--%>
 <%--              <li class="list-group-item"><a href="#" class="list-group-item-link">Social Feed</a></li>--%>
 <%--              <li class="list-group-item"><a href="#" class="list-group-item-link"> Help</a></li>--%>
@@ -31,7 +33,7 @@
           <div class="mb-4">
             <h4 class="mb-4 text-white ">Blog</h4>
             <ul class="list-unstyled list-group ">
-              <li class="list-group-item"><a href="#" class="list-group-item-link">Business Coaching</a></li>
+              <li class="list-group-item">Business Coaching</li>
 <%--              <li class="list-group-item"><a href="#" class="list-group-item-link">Relationship</a></li>--%>
 <%--              <li class="list-group-item"><a href="#" class="list-group-item-link">Leadership</a></li>--%>
 <%--              <li class="list-group-item"><a href="#" class="list-group-item-link">Life Coaching</a></li>--%>
@@ -43,7 +45,7 @@
           <div class="mb-4">
             <h4 class="mb-4 text-white ">Resources</h4>
             <ul class="list-unstyled list-group ">
-              <li class="list-group-item"><a href="#" class="list-group-item-link">Online Courses</a></li>
+              <li class="list-group-item">Online Courses</li>
 <%--              <li class="list-group-item"><a href="#" class="list-group-item-link"> Books Meditation</a></li>--%>
 <%--              <li class="list-group-item"><a href="#" class="list-group-item-link"> Podcast</a></li>--%>
 <%--              <li class="list-group-item"><a href="#" class="list-group-item-link">Albums</a></li>--%>
@@ -55,7 +57,7 @@
           <div class="mb-4">
             <h4 class="mb-4 text-white ">Follow Me</h4>
             <ul class="list-unstyled list-group">
-              <li class="list-group-item"><a href="#" class="list-group-item-link">Instagram</a></li>
+              <li class="list-group-item">Instagram</li>
 <%--              <li class="list-group-item"><a href="#" class="list-group-item-link"> Facebook</a></li>--%>
 <%--              <li class="list-group-item"><a href="#" class="list-group-item-link"> LinkedIn</a></li>--%>
 <%--              <li class="list-group-item"><a href="#" class="list-group-item-link">YouTube</a></li>--%>
@@ -81,8 +83,8 @@
           <div class="mt-8">
             <ul class="list-inline">
               <li class="list-inline-item">© 2022 Software Engineering, Team A.</li>
-              <li class="list-inline-item"><a href="#" class="text-reset"> Privacy Policy </a></li>
-              <li class="list-inline-item"><a href="#" class="text-reset"> Terms</a></li>
+              <li class="list-inline-item">Privacy Policy</li>
+              <li class="list-inline-item">Terms</li>
             </ul>
           </div>
         </div>
