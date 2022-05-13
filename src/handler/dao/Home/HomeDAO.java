@@ -33,7 +33,6 @@ public class HomeDAO {
 //        System.out.println("pw: " + arr[1]);
 
         ArrayList<UserDTO> result = null;
-        ArrayList<UserDTO> test = null;
         List<Map<String, Object>> list = null;
         Connection conn = Config.getInstance().sqlLogin();
         try {
@@ -52,8 +51,6 @@ public class HomeDAO {
             Gson gson = new Gson();
             result = gson.fromJson(gson.toJson(list), new TypeToken<List<UserDTO>>() {
             }.getType());
-            test = gson.fromJson(gson.toJson(list), new TypeToken<List<UserDTO>>(){}.getType());
-//            System.out.println("test :" + test);
 //            System.out.println("result : "+result);
             String realPassword = result.get(0).getPw();
 //            System.out.println("realPassword :"+ realPassword);

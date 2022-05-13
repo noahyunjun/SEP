@@ -74,26 +74,41 @@
                     <div class="col-sm-6">
                         <label for="reservationTime" class="form-label" style="font-family: 'Noto Serif KR', serif;">방문 시간</label>
                         <input type="text" class="form-control" style="font-family: 'Noto Serif KR', serif;" id="reservationTime" placeholder="" value=<%=time%> required="" readonly>
-                        <div class="invalid-feedback" style="font-family: 'Noto Serif KR', serif;">
-                            방문하실 시간을 입력하세요.
-                        </div>
                     </div>
 <%--            <input id="reservationTime" placeholder="reservationTime">--%>
 
                     <div class="col-sm-6" id = "userID"></div>
 <%--            <input id="userid" placeholder="admin">--%>
-                    <div class="col-sm-6" id = "userName"></div>
+<%--                    <div class="col-sm-6" id = "userName"></div>--%>
 <%--            <input id="username" placeholder="홈페이지관리자">--%>
 
+                    <div class="form-check">
+                        <label for="username" class="form-label">성함</label>
+                        <input type="text" class="form-control" id="username">
+<%--                        <label class="form-check-label" for="save-info" style="font-family: 'Noto Serif KR', serif;"></label>--%>
+                    </div>
+
                     <div class="col-12">
-                        <label for="covers" class="form-label" style="font-family: 'Noto Serif KR', serif;">인원수</label>
+                        <label for="NOP" class="form-label" style="font-family: 'Noto Serif KR', serif;">인원수</label>
 <%--                        <input type="text" class="form-control" style="font-family: 'Noto Serif KR', serif;" id="covers" placeholder="인원수를 입력하세요" required="" >--%>
-                        <select id="covers" class="form-control">
+                        <select id="NOP" class="form-control">
                             <option value="1">1명</option>
                             <option value="2">2명</option>
                             <option value="3">3명</option>
                             <option value="4">4명</option>
-                            <option value="5">5명</option>
+                        </select>
+                        <div class="invalid-feedback" style="font-family: 'Noto Serif KR', serif;">
+                            함께 오시는 인원 수를 입력하세요.
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <label for="table_num" class="form-label" style="font-family: 'Noto Serif KR', serif;">테이블 번호</label>
+                        <select id="table_num" class="form-control">
+                            <option value="1">1번 테이블</option>
+                            <option value="2">2번 테이블</option>
+                            <option value="3">3번 테이블</option>
+                            <option value="4">4번 테이블</option>
                         </select>
                         <div class="invalid-feedback" style="font-family: 'Noto Serif KR', serif;">
                             함께 오시는 인원 수를 입력하세요.
@@ -105,8 +120,9 @@
                     <input type="checkbox" class="form-check-input" id="save-info">
                     <label class="form-check-label" for="save-info" style="font-family: 'Noto Serif KR', serif;">이 정보를 다음에도 사용하시겠습니까?</label>
                 </div>
-            <button></button>
+            <button class="w-100 btn btn-dark btn-lg" style="font-family: 'Noto Serif KR', serif;" onclick="completeReservationRequest()">예약하기</button>
     </main>
+
 </div>
 <%@include file="../common/footer.jsp" %>
 </div>
@@ -128,24 +144,15 @@
             +'<div class="invalid-feedback">고객 아이디를 입력하세요</div></div>';
         list.append(text);
     }
-    function makeName(){
-        //현재 user name DB에서 안받아와짐; 소소한 버그라 나중에 픽스 예정
-        var user=<%=user%>;
-        var list = $('#userName');
-        var text='';
-        text+='<label for="username" class="form-label">방문자 성함</label>'
-            +'<input type="text" class="form-control" id="username" placeholder="" value="'+user.name+'" required="" readonly>'
-            +'<div class="invalid-feedback">방문하실 시간을 입력하세요.</div>';
-        list.append(text);
-    }
 
     function completeReservationRequest(){  //예약요청 데이터를 ajax로 전달하는 함수
         var date = $('#reservationDate').val();
         var time = $('#reservationTime').val();
-        //var covers = $('#covers').val();
+        var NOP = $('#NOP').val();
         var name = $('#username').val();
         var id = $('#userid').val();
-        var data = date+'-/-/-'+time+'-/-/-'+name+'-/-/-'+id;
+        var table_num = $('#table_num').val();
+        var data = date+'-/-/-'+time+'-/-/-'+name+'-/-/-'+id+'-/-/-'+NOP+'-/-/-'+table_num;
         //예약 데이터 한줄로 묶어버리기
         var check =  swal({
                 title : '예약을 하시겠습니까?',
@@ -166,6 +173,7 @@
                                     title: '예약 실패!',
                                     text: "해당 시간은 만석입니다!\n다시 예약해주세요.",
                                     icon: 'error',
+
                                     button: '확인'
                                 }).then(function () {
                                     location.href = 'main.sep';
@@ -174,7 +182,7 @@
                             else {
                                 swal({
                                     title: '예약 성공!',
-                                    text: "[예약번호:" + oid + "]의 예약 요청이 정상적으로 요청되었습니다.",
+                                    text: "[예약자 성함:" + oid + "]의 예약 요청이 정상적으로 요청되었습니다.",
                                     icon: 'success',
                                     button: '확인'
                                 }).then(function () {
