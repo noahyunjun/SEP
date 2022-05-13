@@ -19,21 +19,17 @@
       <div class="row">
         <div class="col-lg-2 col-md-4 col-6">
           <div class="mb-4">
-            <h4 class="mb-4 text-white">About</h4>
+            <h4 class="mb-4 text-white">Scrum Master</h4>
             <ul class="list-unstyled list-group">
-              <li class="list-group-item">Meet Coach</li>
-<%--              <li class="list-group-item"><a href="#" class="list-group-item-link">Press</a></li>--%>
-<%--              <li class="list-group-item"><a href="#" class="list-group-item-link">Social Feed</a></li>--%>
-<%--              <li class="list-group-item"><a href="#" class="list-group-item-link"> Help</a></li>--%>
-<%--              <li class="list-group-item"><a href="#" class="list-group-item-link">Contact Us</a></li>--%>
+              <li class="list-group-item text-white-50">&nbsp;박유빈</li>
             </ul>
           </div>
         </div>
         <div class="col-lg-2 col-md-4 col-6">
           <div class="mb-4">
-            <h4 class="mb-4 text-white ">Blog</h4>
+            <h4 class="mb-4 text-white ">Project Owner</h4>
             <ul class="list-unstyled list-group ">
-              <li class="list-group-item">Business Coaching</li>
+              <li class="list-group-item text-white-50">&nbsp;임원빈</li>
 <%--              <li class="list-group-item"><a href="#" class="list-group-item-link">Relationship</a></li>--%>
 <%--              <li class="list-group-item"><a href="#" class="list-group-item-link">Leadership</a></li>--%>
 <%--              <li class="list-group-item"><a href="#" class="list-group-item-link">Life Coaching</a></li>--%>
@@ -43,42 +39,33 @@
         </div>
         <div class="col-lg-2 col-md-4 col-6">
           <div class="mb-4">
-            <h4 class="mb-4 text-white ">Resources</h4>
+            <h4 class="mb-4 text-white">Orderer</h4>
             <ul class="list-unstyled list-group ">
-              <li class="list-group-item">Online Courses</li>
-<%--              <li class="list-group-item"><a href="#" class="list-group-item-link"> Books Meditation</a></li>--%>
-<%--              <li class="list-group-item"><a href="#" class="list-group-item-link"> Podcast</a></li>--%>
-<%--              <li class="list-group-item"><a href="#" class="list-group-item-link">Albums</a></li>--%>
-<%--              <li class="list-group-item"><a href="#" class="list-group-item-link">Download App</a></li>--%>
+              <li class="list-group-item text-white-50">&nbsp;김문성</li>
             </ul>
           </div>
         </div>
         <div class="col-lg-2 col-md-4 col-6">
           <div class="mb-4">
-            <h4 class="mb-4 text-white ">Follow Me</h4>
+            <h4 class="mb-4 text-white">Developer</h4>
             <ul class="list-unstyled list-group">
-              <li class="list-group-item">Instagram</li>
-<%--              <li class="list-group-item"><a href="#" class="list-group-item-link"> Facebook</a></li>--%>
-<%--              <li class="list-group-item"><a href="#" class="list-group-item-link"> LinkedIn</a></li>--%>
-<%--              <li class="list-group-item"><a href="#" class="list-group-item-link">YouTube</a></li>--%>
-<%--              <li class="list-group-item"><a href="#" class="list-group-item-link">Twitter</a></li>--%>
+                <li class="list-group-item text-white-50">&nbsp;함현준</li>
+                <li class="list-group-item text-white-50">&nbsp;조단</li>
+                <li class="list-group-item text-white-50">&nbsp;남원식</li>
+                <li class="list-group-item text-white-50">&nbsp;서아현</li>
+                <li class="list-group-item text-white-50">&nbsp;김용비</li>
             </ul>
           </div>
         </div>
-<%--        <div class="col-lg-4 col-md-8 col-12">--%>
-<%--          <div class="mb-4">--%>
-<%--            <h4 class="mb-4 text-white">Subscribe to our newsletter</h4>--%>
-<%--            <div>--%>
-<%--              <p>Subscribe to get notified daily new motivational & inspiration tips.</p>--%>
-<%--              <form>--%>
-<%--                <div class="mb-3">--%>
-<%--                  <input type="email" class="form-control border-white" placeholder="Email Address" required>--%>
-<%--                </div>--%>
-<%--                <button type="submit" class="btn btn-primary">Subscribe</button>--%>
-<%--              </form>--%>
-<%--            </div>--%>
-<%--          </div>--%>
-<%--        </div>--%>
+        <div class="col-lg-4 col-md-8 col-12">
+            <div class="mb-4">
+                <h4 class="mb-4 text-white">Quality Assurance</h4>
+                <ul class="list-unstyled list-group">
+                    <li class="list-group-item text-white-50">&nbsp;서아현</li>
+                    <li class="list-group-item text-white-50">&nbsp;김용비</li>
+                </ul>
+            </div>
+        </div>
         <div class="col-md-12">
           <div class="mt-8">
             <ul class="list-inline">
