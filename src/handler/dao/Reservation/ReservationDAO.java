@@ -118,6 +118,7 @@ public class ReservationDAO {
         String NOP = arr[4];
         String table_num = arr[5];
         System.out.println("date : "+ date);
+        System.out.println("id : "+ id);
         List<Map<String, Object>> check_reservation = null;
         List<Map<String, Object>> check_walkIn = null;//도착을 했는가?
         List<Map<String, Object>> table = null;

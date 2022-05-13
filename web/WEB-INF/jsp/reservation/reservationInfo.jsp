@@ -77,7 +77,7 @@
                     </div>
 <%--            <input id="reservationTime" placeholder="reservationTime">--%>
 
-<%--                    <div class="col-sm-6" id = "userID"></div>--%>
+                    <div class="col-sm-6" id = "userID"></div>
 <%--            <input id="userid" placeholder="admin">--%>
 <%--                    <div class="col-sm-6" id = "userName"></div>--%>
 <%--            <input id="username" placeholder="홈페이지관리자">--%>
@@ -134,16 +134,16 @@
         makeID();
         makeName();
     })
-    <%--function makeID(){--%>
-    <%--    var user=<%=user%>;--%>
-    <%--    var list = $('#userID');--%>
-    <%--    var text='';--%>
-    <%--    text += '<label for="userid" class="form-label">고객 아이디</label>'--%>
-    <%--        +'<div class="input-group has-validation"><span class="input-group-text">@</span>'--%>
-    <%--        +'<input type="text" class="form-control" id="userid" placeholder="Customer ID" value="'+user.id+'" required="" readonly>'--%>
-    <%--        +'<div class="invalid-feedback">고객 아이디를 입력하세요</div></div>';--%>
-    <%--    list.append(text);--%>
-    <%--}--%>
+    function makeID(){
+        var user=<%=user%>;
+        var list = $('#userID');
+        var text='';
+        text += '<label for="userid" class="form-label">고객 아이디</label>'
+            +'<div class="input-group has-validation"><span class="input-group-text">@</span>'
+            +'<input type="text" class="form-control" id="userid" placeholder="Customer ID" value="'+user.id+'" required="" readonly>'
+            +'<div class="invalid-feedback">고객 아이디를 입력하세요</div></div>';
+        list.append(text);
+    }
 
     function completeReservationRequest(){  //예약요청 데이터를 ajax로 전달하는 함수
         var date = $('#reservationDate').val();
