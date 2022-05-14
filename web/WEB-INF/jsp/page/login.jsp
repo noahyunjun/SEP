@@ -5,6 +5,10 @@
   Time: 오후 4:34
   To change this template use File | Settings | File Templates.
 --%>
+
+<!-- 1. 입력 폼을 채우고 제출하면 페이지 리로드 후 변화가 없음
+     뒤로가기 클릭 시 jquery 문구 "로그인 성공!"이 출력되고 확인 클릭 시 메인 페이지로 이동함 -->
+
 <%
     /**
      * login시 입력한 ID와 PW를 한줄의 String으로 만들어서 AjaxAction 클래스로 보냅니다.

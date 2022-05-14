@@ -5,6 +5,12 @@
   Time: 오후 5:24
   To change this template use File | Settings | File Templates.
 --%>
+
+<!-- 1. 입력 폼을 채우지 않고 회원가입 시도 시 회원가입 하시겠습니까? 위에
+     "이 입력란을 작성하세요" 문구가 뜨는데 로그인 페이지는 안뜨고 회원가입 페이지만 뜸 -->
+<!-- 2. 입력 폼을 채우고 제출하면 페이지 리로드 후 변화가 없음
+     뒤로가기 클릭 시 jquery 문구 "회원가입 하시겠습니까?가 출력되고 확인 클릭 시 로그인 페이지로 이동함 -->
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
