@@ -55,7 +55,7 @@
 <%@include file="../common/header.jsp" %>
 <main class="form-signin">
     <!-- sign in -->
-    <div class="min-vh-100 d-flex align-items-center " style="background:url(../../../assets/images/signUp.jpg)no-repeat; background-size: cover;">
+    <div class="min-vh-100 d-flex align-items-center " style="background:url(../../../assets/images/login.jpg)no-repeat; background-size: cover;">
         <div class="container">
             <div class="row">
                 <div class="offset-lg-3 col-lg-6 col-12">
