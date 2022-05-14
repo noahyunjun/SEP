@@ -223,6 +223,7 @@
                             </li>
                         </ul>
                         <div class="header-btn ">
+                            <a style="font-family: 'Noto Serif KR', serif;" href="loginPage.sep" class="btn btn-primary btn-sm ">로그인</a>
                         </div>
                     </div>
                 </nav>
