@@ -64,8 +64,8 @@
                             <h1 class="mb-2 text-white">Welcome</h1>
                             <p class="mb-4">Today will be great! </p>
                             <div class="mb-3">
-                                <label for="floatingInput" class="form-label text-white-50">Username </label>
-                                <input type="text" id="floatingInput" class="form-control border-0" placeholder="Username" required="" />
+                                <label for="floatingInput" class="form-label text-white-50">User ID </label>
+                                <input type="text" id="floatingInput" class="form-control border-0" placeholder="User ID" required="" />
                             </div>
                             <div class="mb-3 mb-4">
                                 <label for="floatingPassword" class="form-label  text-white-50">Password</label>
