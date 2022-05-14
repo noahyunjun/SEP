@@ -33,7 +33,7 @@
                         </p>
                         <div class="carousel-inner">
                             <div class="container">
-                                <p style="font-family: 'Noto Serif KR', serif;"><a class="btn btn-lg btn-dark" href="loginPage.sep">로그인 하러 가기</a></p>
+                                <p style="font-family: 'Noto Serif KR', serif;"><a class="btn btn-lg btn-dark" href="reservation.sep">예약 하기</a></p>
                             </div>
                         </div>
                     </div>
@@ -45,13 +45,9 @@
     <!-- Marketing messaging and featurettes
     ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
-    <div>
-        <div class="container">
-            <h2 style="font-family: 'Noto Serif KR', serif;">테이블 예약하기</h2>
-            <p style="font-family: 'Noto Serif KR', serif;">원하는 날짜와 시간에 예약을 하실 수 있습니다.</p>
-            <p style="font-family: 'Noto Serif KR', serif;"><a class="btn btn-lg btn-dark" href="reservation.sep">예약 하기</a></p>
-        </div><!-- /.col-lg-4 -->
-    </div><!-- /.row -->
+
+
+
 
     <!-- START THE FEATURETTES -->
     <hr class="featurette-divider" style="color: black">
