@@ -52,7 +52,7 @@
     <script src="../../../assets/js/theme.min.js"></script>
 </head>
 <body>
-<%@include file="../common/header.jsp" %>
+
 <main class="form-signin">
     <!-- sign in -->
     <div class="min-vh-100 d-flex align-items-center " style="background:url(../../../assets/images/login.jpg)no-repeat; background-size: cover;">

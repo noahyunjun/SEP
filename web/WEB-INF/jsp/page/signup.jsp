@@ -68,7 +68,7 @@
     <link href="css/form-validation.css" rel="stylesheet">
 </head>
 <body class="bg-light">
-<%@include file="../common/header.jsp" %>
+
 <main>
     <!-- sign up -->
     <div class="min-vh-100 d-flex align-items-center " style="background:url(../../../assets/images/signUp.jpg)no-repeat; background-size: cover;">
