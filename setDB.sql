@@ -25,21 +25,23 @@ create table restaurant_table(
 )ENGINE = InnoDB;
 
 create table reservations(
-                             reservation_id INT NOT NULL AUTO_INCREMENT,
-                             reservation_table INT NOT NULL,
-                             reservation_user INT NOT NULL,
-                             reservation_date TIMESTAMP DEFAULT '0000-00-00',
-                             reservation_time INT NOT NULL,
-                             arrived_at TIMESTAMP DEFAULT '0000-00-00 00:00:00',
-                             FOREIGN KEY(reservation_table) REFERENCES restaurant_table(table_id),
-                             FOREIGN KEY(reservation_user) REFERENCES users(user_id) ON DELETE CASCADE,
-                             PRIMARY KEY (reservation_id)
+                             reserv_id INT NOT NULL AUTO_INCREMENT,
+							 reserv_user varchar(50) NOT NULL,
+							 reserv_userId INT NOT NULL,
+                             reserv_date varchar(50) NOT NULL,
+                             reserv_time INT NOT NULL,
+                             reserv_NOP INT NOT NULL,
+                             reserv_table_num INT NOT NULL,
+                             r_code INT NOT NULL,
+                             -- arriusersved_at TIMESTAMP DEFAULT '0000-00-00 00:00:00',
+                             
+                             PRIMARY KEY (reserv_id)
 )ENGINE = InnoDB AUTO_INCREMENT = 1 ROW_FORMAT = DEFAULT CHARACTER SET utf8;
 
 #users
 insert into users value(0, 'ham', '0000',
                         '1111'); -- name : user1, id : 1234, pw : qwer
-insert into users value(0, 'user2', '5678',
+insert into users value(0, 'ureservationsser2', '5678',
                         'qwer2'); -- name : user2, id : 5678, pw : asdf
 
 
@@ -51,16 +53,12 @@ insert into managers value(0, 'manager1', 'admin1',
 insert into managers value(0, 'manager2', 'admin2',
                            '1c142b2d01aa34e9a36bde480645a57fd69e14155dacfab5a3f9257b77fdc8d8'); -- name : mamanger2, id : admin2, pw : admin2
 
- #tables
-insert into restaurant_table value(1);
-insert into restaurant_table value(2);
-insert into restaurant_table value(3);
-insert into restaurant_table value(4);
-insert into restaurant_table value(5);
+
  
  
 #reservations
-
-
-
-
+insert into  restaurant_table value (1);
+insert into  restaurant_table value (2);
+insert into  restaurant_table value (3);
+insert into  restaurant_table value (4);
+insert into  restaurant_table value (5);

@@ -1,13 +1,8 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Gabriel Yoon
-  Date: 2021-05-05
-  Time: 오후 4:34
-  To change this template use File | Settings | File Templates.
---%>
 
 <!-- 1. 입력 폼을 채우고 제출하면 페이지 리로드 후 변화가 없음
      뒤로가기 클릭 시 jquery 문구 "로그인 성공!"이 출력되고 확인 클릭 시 메인 페이지로 이동함 -->
+
+
 
 <%
     /**
@@ -93,7 +88,20 @@
                 </div>
             </div>
         </div>
+
     </div>
+
+
+        <button type="button" id="login_button" >로그인하기</button>
+        <div class="mb-3">
+            <a style="font-size: 20px; color: black; font-family: 'Noto Serif KR', serif;" href="signupPage.sep">회원
+                가입하기</a>
+        </div>
+
+<%--로그인 완료시 error page 대신 이미 로그인되었다는 modal 띄우기--%>
+        <%--        class="w-100 btn btn-lg btn-dark" style="font-family: 'Noto Serif KR', serif;"--%>
+<%--        onclick="button()"--%>
+    </form>
 
 </main>
 <script src="js/bootstrap.bundle.min.js"></script>
