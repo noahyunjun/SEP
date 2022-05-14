@@ -19,35 +19,39 @@
 <body>
 <%@include file="../common/header.jsp" %>
 <main>
-
-    <%--    슬라이드에 등록할 사진과 설명을 정해줍니다.--%>
-    <div class="carousel-inner">
+    <!-- restaurantMain section -->
+    <div style="background-image: url(../../../assets/images/restaurantMain.jpg); background-size: cover; background-repeat: no-repeat; background-position: center;">
         <div class="container">
-            <p style="font-family: 'Noto Serif KR', serif;"><a class="btn btn-lg btn-dark" href="loginPage.sep">로그인 하러 가기</a></p>
+            <div class="row">
+                <div class="offset-lg-2 col-lg-8 col-md-12 col-12">
+                    <div class="pt-17 pb-13 pt-lg-19 pb-lg-19 text-center text-light">
+                        <h1 class="display-3 text-white mb-3 lh-1">
+                            Become the hero of your own story
+                        </h1>
+                        <p class="px-xl-18 px-md-14 mb-5 lead">
+                            Join our promotion like blossom after noon. Make a reservation to the 2022 event.
+                        </p>
+                        <div class="carousel-inner">
+                            <div class="container">
+                                <p style="font-family: 'Noto Serif KR', serif;"><a class="btn btn-lg btn-dark" href="reservation.sep">예약 하기</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-
 
     <!-- Marketing messaging and featurettes
     ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
-    <div>
-        <div>
 
-            <h2 style="font-family: 'Noto Serif KR', serif;">테이블 예약하기</h2>
-            <p style="font-family: 'Noto Serif KR', serif;">원하는 날짜와 시간에 예약을 하실 수 있습니다.</p>
-            <p style="font-family: 'Noto Serif KR', serif;"><a class="btn btn-dark" href="reservation.sep">예약 하기</a>
-            </p>
-        </div><!-- /.col-lg-4 -->
-    </div><!-- /.row -->
+
 
 
     <!-- START THE FEATURETTES -->
     <hr class="featurette-divider" style="color: black">
-
-
 </main>
-
 
 <script src="js/bootstrap.bundle.min.js"></script>
 
