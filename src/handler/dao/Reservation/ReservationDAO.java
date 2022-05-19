@@ -52,7 +52,7 @@ public class ReservationDAO {
         Connection conn = Config.getInstance().sqlLogin();
         try {
             QueryRunner queryRunner = new QueryRunner();
-            list = queryRunner.query(conn, "SELECT * FROM reservations WHERE reservation_user=?", new MapListHandler(), id);
+            list = queryRunner.query(conn, "SELECT * FROM reservations WHERE reserv_user=?", new MapListHandler(), id);
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -61,8 +61,8 @@ public class ReservationDAO {
         Gson gson = new Gson();
         result = gson.fromJson(gson.toJson(list), new TypeToken<List<ReservationRequestDTO>>() {
         }.getType());
-        // System.out.println(list);
-        // System.out.println(result.get(0).getDate());
+         System.out.println(list);
+//         System.out.println(result.get(0).getDate());
         return result;
     }
     public ArrayList<ReservationDTO> getUserReservation(String id) {  //고객 예약 리스트 db 불러오기
@@ -71,7 +71,7 @@ public class ReservationDAO {
         Connection conn = Config.getInstance().sqlLogin();
         try {
             QueryRunner queryRunner = new QueryRunner();
-            list = queryRunner.query(conn, "SELECT * FROM reservations WHERE reservation_user=?", new MapListHandler(), id);
+            list = queryRunner.query(conn, "SELECT * FROM reservations WHERE reserv_user=?", new MapListHandler(), id);
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
