@@ -77,53 +77,45 @@
 
 <main>
     <!-- sign up -->
-    <div class="min-vh-100 d-flex align-items-center " style="background:url(../../../assets/images/signUp.jpg)no-repeat; background-size: cover;">
-        <div class="container">
-            <div class="row">
-                <div class="offset-lg-3 col-lg-6 col-12">
-                    <div class="bg-dark p-4 p-lg-8 rounded-3">
-                        <form>
-                            <h1 class="mb-2 text-white h3">Sign up</h1>
-                            <p class="mb-4">Please fill in this form to create account!</p>
-                            <div class="mb-3">
-                                <label for="name" class="form-label text-white-50">Name </label>
-                                <input type="text" id="name" class="form-control border-0" placeholder="Name" required="" />
-                                <div class="invalid-feedback">
-                                    이름을 입력해주세요.
-                                </div>
+
+    <div class="container">
+        <div class="py-5 text-center">
+            <h2 style="font-family: 'Noto Serif KR', serif;">회원 가입</h2>
+            <p class="lead" style="font-family: 'Noto Serif KR', serif;"> 아래의 정보들을 모두 입력하시오. </p>
+        </div>
+        <div>
+            <h4 class="mb-3" style="font-family: 'Noto Serif KR', serif;">기본 정보</h4>
+            <div class="needs-validation" novalidate>
+                <div class="row g-3">
+                    <div class="col-12">
+                        <label for="name" class="form-label" style="font-family: 'Noto Serif KR', serif;">이 름</label>
+                        <input type="text" class="form-control" id="name" placeholder="" value="" required>
+                        <div class="invalid-feedback">
+                            이름을 입력해주세요.
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <label for="id" class="form-label" style="font-family: 'Noto Serif KR', serif;">아이디</label>
+                        <div class="input-group has-validation">
+                            <input type="text" class="form-control" id="id" placeholder="" required>
+                            <div class="invalid-feedback">
+                                아이디를 입력해주세요.
                             </div>
-                            <div class="mb-3">
-                                <label for="id" class="form-label text-white-50">User ID </label>
-                                <input type="text" id="id" class="form-control border-0" placeholder="User ID" required="" />
-                                <div class="invalid-feedback">
-                                    아이디를 입력해주세요.
-                                </div>
-                            </div>
-                            <div class="mb-3 mb-4">
-                                <label for="pw" class="form-label text-white-50">Password</label>
-                                <input type="password" id="pw" class="form-control border-0" placeholder="Password" required="" />
-                                <div class="invalid-feedback">
-                                    비밀번호를 입력해주세요.
-                                </div>
-                            </div>
-                            <div class="d-grid">
-                                <button class="btn btn-primary" type=submit onclick="signUp()">
-                                    Sign up
-                                </button>
-                            </div>
-                            <p class="mt-3 mb-3 text-muted font-14">
-                                Already have an account? <a href="#"> Sign in.</a>
-                            </p>
-                        </form>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <label for="pw" class="form-label" style="font-family: 'Noto Serif KR', serif;">비밀번호</label>
+                        <input type="text" class="form-control" id="pw" placeholder="" required="">
+                        <div class="invalid-feedback">
+                            비밀번호를 입력해주세요.
+                        </div>
                     </div>
                 </div>
+                <button class="w-100 btn btn-dark btn-lg" onclick="signUp()" style="font-family: 'Noto Serif KR', serif;">회원가입 하기</button>
             </div>
         </div>
     </div>
-
-
-
-
 </main>
 <script src="js/bootstrap.bundle.min.js"></script>
 <script src="js/form-validation.js"></script>
