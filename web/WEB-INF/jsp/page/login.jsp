@@ -32,6 +32,7 @@
 
     <!-- Theme CSS -->
     <link rel="stylesheet" href="../../../assets/css/theme.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
 
     <!-- Libs JS -->
     <script src="../../../assets/libs/jquery/dist/jquery.min.js"></script>
@@ -44,6 +45,8 @@
     <script src="../../../assets/libs/ion-rangeslider/js/ion.rangeSlider.min.js"></script>
     <script src="../../../assets/libs/inputmask/dist/jquery.inputmask.min.js"></script>
 
+
+
     <!-- clipboard -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"></script>
 
@@ -53,61 +56,34 @@
 <body>
 
 <main class="form-signin">
-    <!-- sign in -->
-    <div class="min-vh-100 d-flex align-items-center " style="background:url(../../../assets/images/login.jpg)no-repeat; background-size: cover;">
-        <div class="container">
-            <div class="row">
-                <div class="offset-lg-3 col-lg-6 col-12">
-                    <div class="bg-dark p-4 p-lg-8 rounded-3">
-                        <form>
-                            <h1 class="mb-2 text-white">Welcome</h1>
-                            <p class="mb-4">Today will be great! </p>
-                            <div class="mb-3">
-                                <label for="floatingInput" class="form-label text-white-50">User ID </label>
-                                <input type="text" id="floatingInput" class="form-control border-0" placeholder="User ID" required="" />
-                            </div>
-                            <div class="mb-3 mb-4">
-                                <label for="floatingPassword" class="form-label  text-white-50">Password</label>
-                                <input type="password" id="floatingPassword" class="form-control border-0" placeholder="Password" required="" />
-                            </div>
-                            <div class="d-grid">
-                                <button class="btn btn-primary" type="submit" id="login_button">
-                                    LOGIN
-                                </button>
-                            </div>
-                            <div class="d-lg-flex justify-content-between mt-4 mb-3 ">
-                                <p class="text-muted font-14">
-                                    Don't have an account yet? <a href="signupPage.sep">Sign up</a>
-                                </p>
-                                <p class="font-14">
-                                    <a href="#">Forget Password</a>
-                                </p>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-
-        <button type="button" id="login_button" >로그인하기</button>
-        <div class="mb-3">
-            <a style="font-size: 20px; color: black; font-family: 'Noto Serif KR', serif;" href="signupPage.sep">회원
-                가입하기</a>
-        </div>
 
 <%--로그인 완료시 error page 대신 이미 로그인되었다는 modal 띄우기--%>
-        <%--        class="w-100 btn btn-lg btn-dark" style="font-family: 'Noto Serif KR', serif;"--%>
+<%--                class="w-100 btn btn-lg btn-dark" style="font-family: 'Noto Serif KR', serif;"--%>
 <%--        onclick="button()"--%>
+<%--    </form>--%>
+    <form>
+        <h1 class="h3 mb-3 fw-normal text-center " style="font-family: 'Noto Serif KR', serif;">Log-In</h1>
+        <div class="form-floating">
+            <input type="text" class="form-control btn-outline-dark " id="floatingInput" placeholder="id">
+            <label for="floatingInput">ID</label>
+        </div>
+        <div class="form-floating">
+            <input type="password" class="form-control btn-outline-dark" id="floatingPassword" placeholder="Password">
+            <label for="floatingPassword">Password</label>
+        </div>
+        <div class="mb-3">
+            <a style="font-size: 20px; color: black; font-family: 'Noto Serif KR', serif;" href="signupPage.do">회원 가입 하기</a>
+        </div>
+        <button type="button" class="w-100 btn btn-lg btn-dark" style="font-family: 'Noto Serif KR', serif;" id="lo_button">로그인 하기</button>
     </form>
 
 </main>
 <script src="js/bootstrap.bundle.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
 <script>
+
     $(document).ready(function () { //이 파일이 시작되면 자동으로 실행됩니다.
         errorAlert();
     })
@@ -122,9 +98,42 @@
                 button: '확인',
             });
     }
+    $("#test_swal").click(function test_swal(){
+        swal({
+            title: '테스트.',
+            text: '테스트는 완료됨.',
+            icon: 'info',
+            button: '확인,'
+        });
+    })
 
 
-    $("#login_button").click(function () {
+    // $("#lo_button").click(function test_swal(){
+    //     if(0){
+    //         swal({
+    //             title: '테스트.',
+    //             text: 'if테스트 완료됨.',
+    //             icon: 'info',
+    //             button: '확인,'
+    //         }).then(function(){
+    //             window.location.href = "main.sep"
+    //         });
+    //     }
+    //     else{
+    //         swal({
+    //             title: '테스트.',
+    //             text: 'else테스트 완료됨.',
+    //             icon: 'info',
+    //             button: '확인,'
+    //         }).then(function(){
+    //             window.location.href = "main.sep"
+    //         })
+    //     }
+    //
+    // })
+    //swal test용 함수
+
+    $("#lo_button").click(function () {
         let id = $('#floatingInput').val();
         let pw = $('#floatingPassword').val();
         let data = id + "-/-/-" + pw; //데이터를 1줄로 합침.
@@ -135,9 +144,8 @@
             data: {
                 req: "login", //AjaxAction 클래스에다가 req값을 전달해줍니다.
                 data: data //AjaxAction 클래스에다가 data값을 전달해줍니다.
-            },
-            success: function (login) { //login은 ajaxAction 클래스가 return해준 값을 담는 변수 이름입니다.
-                if (login == "성공") {
+            }, success: function (lo) { //login은 ajaxAction 클래스가 return해준 값을 담는 변수 이름입니다.
+                if (lo == "1") {
                     swal({
                         title: '로그인 성공!',
                         text: 'Restaurant에 오신 걸 환영합니다.',
@@ -160,6 +168,6 @@
             }
         })
 
-    });
+    })
 </script>
 </html>
