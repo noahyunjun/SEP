@@ -1,11 +1,6 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Gabriel Yoon
-  Date: 2021-05-09
-  Time: 오전 4:39
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="com.google.gson.Gson" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <!doctype html>
 <html>
 <head>
@@ -18,6 +13,9 @@
 </head>
 <body>
 <%@include file="../common/header.jsp" %>
+<%
+System.out.println("user : "+user);
+%>
 <main>
     <!-- restaurantMain section -->
     <div style="background-image: url(../../../assets/images/restaurantMain.jpg); background-size: cover; background-repeat: no-repeat; background-position: center;">
@@ -26,10 +24,10 @@
                 <div class="offset-lg-2 col-lg-8 col-md-12 col-12">
                     <div class="pt-17 pb-13 pt-lg-19 pb-lg-19 text-center text-light">
                         <h1 class="display-3 text-white mb-3 lh-1">
-                            Become the hero of your own story
+                            레스토랑 예약 시스템
                         </h1>
                         <p class="px-xl-18 px-md-14 mb-5 lead">
-                            Join our promotion like blossom after noon. Make a reservation to the 2022 event.
+                            여기가 지우거나 새로운 내용이 들어가야하는 곳입니다.
                         </p>
                         <div class="carousel-inner">
                             <div class="container">
@@ -42,16 +40,22 @@
         </div>
     </div>
 
+
     <!-- Marketing messaging and featurettes
     ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
+    <div>
+        <div>
 
 
 
 
     <!-- START THE FEATURETTES -->
     <hr class="featurette-divider" style="color: black">
+
+
 </main>
+
 
 <script src="js/bootstrap.bundle.min.js"></script>
 

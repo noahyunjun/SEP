@@ -1,20 +1,14 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Gabriel Yoon
-  Date: 2021-05-09
-  Time: 오전 4:40
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
-    /**[윤주현]
-     * session에서 user의 정보를 받아옵니다.
-     * user를 setAttribute하고 있는 곳은 src/com/se/team4/application/domain/AjaxAction 클래스의
-     * session.setAttribute("user", gson.toJson(HomeDAO.getInstance().getUserInfo(id))); 입니다.
-     * 로그인을 하지 않은 경우 user는 null입니다.
-     * 즉, 로그인 정보는 이 header.jsp가 include되는 어느 곳에서든 따라다니게 되므로 user 사용이 어디서나 가능하게 됩니다.
-     */
+
     String user = (String) session.getAttribute("user");
+	/**
+	 * session에서 user의 정보를 받아옵니다.
+	 * user를 setAttribute하고 있는 곳은 src/com/se/team4/application/domain/AjaxAction 클래스의
+	 * session.setAttribute("user", gson.toJson(HomeDAO.getInstance().getUserInfo(id))); 입니다.
+	 * 로그인을 하지 않은 경우 user는 null입니다.
+	 * 즉, 로그인 정보는 이 header.jsp가 include되는 어느 곳에서든 따라다니게 되므로 user 사용이 어디서나 가능하게 됩니다.
+	 */
 %>
 <head>
     <meta charset="utf-8">
@@ -222,6 +216,9 @@
                                 </ul>
                             </li>
                         </ul>
+                        <div class="header-btn">
+                            <a href="userReservationInfo.sep">마이페이지</a>
+                        </div>
                         <div class="header-btn ">
                             <a style="font-family: 'Noto Serif KR', serif;" href="loginPage.sep" class="btn btn-primary btn-sm ">로그인</a>
                         </div>
