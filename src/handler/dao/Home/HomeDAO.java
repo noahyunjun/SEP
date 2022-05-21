@@ -55,6 +55,7 @@ public class HomeDAO {
             String realPassword = result.get(0).getPw();
 //            System.out.println("realPassword :"+ realPassword);
             if (password.equals(realPassword)) {
+//                System.out.println("로그인 성공");
                 return true; //로그인 성공
             }// 굳이 이렇게 하는건, return 값으로 ture와 false값을 보내주기 위해서.
             return false;//로그인 실패

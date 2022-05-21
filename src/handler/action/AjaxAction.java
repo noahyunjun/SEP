@@ -40,14 +40,16 @@ public class AjaxAction implements Action {
                     return "실패";//실패했다는걸 JSP에게 알려줘야합니다.
                 }
                 else {//로그인 성공
-                    String arr[] = data.split("-/-/-");
+                    String[] arr = data.split("-/-/-");
                     String id = arr[0];
+//                    System.out.println("ajax에서 넘어가는 id :"+ id);
                     if (manager.isUsing(id)) { //중복 접속 제한
                         manager.removeSession(id); //다른 세션에 접속되어있는 내 계정을 전부 로그아웃 시켜버립니다.
                     }
+                    session.setAttribute("ID", id);
                     session.setAttribute("user", gson.toJson(HomeDAO.getInstance().getUserInfo(id)));
                     //로그인 정보는 어디서든 사용되므로 세션에 집어 넣습니다. 이 부분은 주로 header.jsp가 getAttribute 할 것으로 예상됩니다.
-                    return "성공";//성공했다는 걸 JSP에게 알려줘야 합니다.
+                    return "1";//성공했다는 걸 JSP에게 알려줘야 합니다.
                 }
             case "signup"://회원가입 시 입력된 정보를 한 줄로 보내줍니다.
                 result = HomeDAO.getInstance().signUp(data);
@@ -70,9 +72,11 @@ public class AjaxAction implements Action {
                 result=ReservationDAO.getInstance().addReservation(data);
                 break;
             case "deleteReservation":
+
                 result=ReservationDAO.getInstance().deleteReservation(data);
                 break;
             case "deleteReservationRequest":
+//                System.out.println("ajax data: "+data);
                 result=ReservationDAO.getInstance().deleteReservationRequest(data);
                 break;
             case "modifyReservationRequest":

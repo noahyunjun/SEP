@@ -22,7 +22,7 @@ public class ReservationInfoAction implements Action {
             return "RequestDispatcher:jsp/page/login.jsp";
         }
         else {
-            System.out.println("Action 실행됨");
+//            System.out.println("Action 실행됨");
             return "RequestDispatcher:jsp/reservation/reservationInfo.jsp";
         }
     }

@@ -1,81 +1,77 @@
 package handler.dto.Reservation;
 
 public class ReservationDTO {
-    private String oid;
-    private String covers;
-    private String date;
-    private String time;
-    private String table_id;
-    private String customer_id;
-    private String customer_name;
-    private String arrivalTime;
-    private String message;
+    private String id;
+    private String reserv_user;
 
-    public String getCustomer_name() {
-        return customer_name;
+    public String getId() {
+        return id;
     }
 
-    public void setCustomer_name(String customer_name) {
-        this.customer_name = customer_name;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String getOid() {
-        return oid;
+    public String getReserv_user() {
+        return reserv_user;
     }
 
-    public void setOid(String oid) {
-        this.oid = oid;
+    public void setReserv_user(String reserv_user) {
+        this.reserv_user = reserv_user;
     }
 
-    public String getCovers() {
-        return covers;
+    public String getReserv_userId() {
+        return reserv_userId;
     }
 
-    public void setCovers(String covers) {
-        this.covers = covers;
+    public void setReserv_userId(String reserv_userId) {
+        this.reserv_userId = reserv_userId;
     }
 
-    public String getDate() {
-        return date;
+    public String getReserv_date() {
+        return reserv_date;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setReserv_date(String reserv_date) {
+        this.reserv_date = reserv_date;
     }
 
-    public String getTime() {
-        return time;
+    public String getReserv_time() {
+        return reserv_time;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    public void setReserv_time(String reserv_time) {
+        this.reserv_time = reserv_time;
     }
 
-    public String getTable_id() {
-        return table_id;
+    public String getReserv_NOP() {
+        return reserv_NOP;
     }
 
-    public void setTable_id(String table_id) {
-        this.table_id = table_id;
+    public void setReserv_NOP(String reserv_NOP) {
+        this.reserv_NOP = reserv_NOP;
     }
 
-    public String getCustomer_id() {
-        return customer_id;
+    public String getReserv_table_num() {
+        return reserv_table_num;
     }
 
-    public void setCustomer_id(String customer_id) {
-        this.customer_id = customer_id;
+    public void setReserv_table_num(String reserv_table_num) {
+        this.reserv_table_num = reserv_table_num;
     }
 
-    public String getArrivalTime() {
-        return arrivalTime;
+    public String getR_code() {
+        return r_code;
     }
 
-    public void setArrivalTime(String arrivalTime) {
-        this.arrivalTime = arrivalTime;
+    public void setR_code(String r_code) {
+        this.r_code = r_code;
     }
 
-    public String getMessage() { return message; }
-
-    public void setMessage(String message) {this.message = message; }
+    private String reserv_userId;
+    private String reserv_date;
+    private String reserv_time;
+    private String reserv_NOP;
+    private String reserv_table_num;
+    private String r_code;
 }

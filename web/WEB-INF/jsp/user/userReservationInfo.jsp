@@ -6,7 +6,9 @@
     String Reservation = (String) request.getAttribute("Reservation");
     String Order = (String) request.getAttribute("Order");
     String id=(String) request.getAttribute("id");
-
+//        System.out.println("reservationRequest : "+ReservationRequest);
+//        System.out.println("reservation : "+Reservation);
+//        System.out.println("id : "+ id);
 
 %>
 <html>
@@ -19,13 +21,13 @@
     <link href="https://unpkg.com/bootstrap-table@1.18.3/dist/bootstrap-table.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200&display=swap" rel="stylesheet">
-    <title>Little4 Restaurant USER</title>
+    <title>Restaurant USER</title>
 
 </head>
 <body>
 <%@include file="../common/header.jsp" %>
 <%
-System.out.println("user2: "+user);
+//System.out.println("user2: "+user);
 %>
 <br>
 <br>
@@ -43,12 +45,12 @@ System.out.println("user2: "+user);
                 data-side-pagination="server">
             <thead>
             <tr>
-                <th data-field="action">설정</th>
-                <th data-field="oid">예약번호</th>
+                <th data-field="user">이름</th>
+                <th data-field="userId">아이디</th>
                 <th data-field="date">날짜</th>
                 <th data-field="time">시간</th>
-                <th data-field="covers">예약인원</th>
-                <th data-field="message">메시지</th>
+                <th data-field="NOP">인원수</th>
+                <th data-field="action">설정</th>
             </tr>
             </thead>
         </table>
@@ -116,7 +118,6 @@ System.out.println("user2: "+user);
     </div>
 
 </div>
-<%@include file="../common/footer.jsp" %>
 </body>
 <script src="https://unpkg.com/bootstrap-table@1.18.3/dist/bootstrap-table.min.js"></script>
 <script src="js/bootstrap.bundle.min.js"></script>
@@ -149,13 +150,14 @@ System.out.println("user2: "+user);
         for(var i=0;i<reservaionRequestLst.length;i++){
             var request=reservaionRequestLst[i];
             rows.push({
-                oid: request.oid,
-                covers: request.covers,
-                date: request.date,
-                time: request.time,
-                message: request.message,
+                user: request.reserv_user,
+                userId: request.reserv_userId,
+                date: request.reserv_date,
+                time: request.reserv_time,
+                NOP: request.reserv_NOP,
                 action : '<button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#staticBackdrop4" onclick="MakeModalData('+i+')">예약 정보 수정</button>'+
                     '<button class="btn btn-outline-dark" onclick="deleteReservationRequest('+i+')">예약 취소</button>'
+
             });
         }
         // alert(rows);
@@ -204,8 +206,13 @@ System.out.println("user2: "+user);
         // alert('id:'+id);
         var reservationRequestList = <%=ReservationRequest%>;
         var reservation=reservationRequestList[i];
-        var date = reservation.date;
-        var time = reservation.time;
+        var date = reservation.reserv_date;
+        var time = reservation.reserv_time;
+        var NOP = reservation.reserv_NOP;
+        var name = reservation.reserv_user;
+        var ID = reservation.reserv_id;
+        var id2 = reservation.reserv_userId;
+        var r_code = reservation.r_code;
         text +='날짜<input type="date" class="form-control" id="modifyDate" name="new_date" value="'+date+'" placeholder="Date">'
         text +='시간<select id="modifyTime" class="form-control"><option value="'+time+'">'+time+':00</option>'
         for(var i=openingTime;i<closingTime;i++){
@@ -213,31 +220,43 @@ System.out.println("user2: "+user);
         }
         text +='</select>';
         //이름
-        text+= '이름<input type="text" class="form-control" id="modifyName" name="new_name" value="'+""+'">';
+        text+= '이름<input type="text" class="form-control" id="modifyName" name="new_name" value="'+name+'">';
         //인원수
-        text += '인원수<select id="modifyCovers" class="form-control"><option value="1">1명</option>';
+        text += '인원수<select id="modifyNOP" class="form-control"><option value="'+NOP+'">'+NOP+'명</option>';
         for(var i=2;i<6;i++){
             text+='<option value="'+i+'">'+i+'명</option>';
         }
         text+='</select>';
         text+='<div class="modal-footer">'
             +'<button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">취소</button>'
-            +'<button type="button" class="btn btn-dark" onclick="modifyReservationRequest('+reservation.oid+')">수정하기</button>'
+            // +'<button type="button" class="btn btn-dark" onclick="modifyReservationRequest('+ID+')">수정하기</button>'
+            +'<button type="button" class="btn btn-dark" onclick="modifyReservationRequest('+r_code+')">수정하기</button>'
+            // +'<button type="button" class="btn btn-dark" id="test">테스트</button>'
             +'</div>';
         list.html(text);//누를때마다 #DataModify의 값을 완전 새로 갈아치움
     }
+    // $("#test").click(function test_swal() {
+    //     swal({
+    //         title: '테스트.',
+    //         text: 'if테스트 완료됨.',
+    //         icon: 'info',
+    //         button: '확인,'
+    //     });
+    // })
+
+    //swal test용 함수
+
+
     function message(){
         alert("※변경을 원하시면 02-111-2222로 문의해주세요.※");
-        location.href='userReservationInfo.do?id='+<%=id%>;
+        location.href='userReservationInfo.sep?id='+<%=id%>;
     }
     function deleteReservation(i) {
-        var reservationList =
-        <%=Reservation%>
+        var reservationList = <%=Reservation%>
         var reservation = reservationList[i];
-        var date = reservation.date;
-        var time = reservation.time;
-        var table = reservation.table_id;
-        var data = date + "-/-/-" + time + "-/-/-" + table;
+        var date = reservation.reserv_date;
+        var time = reservation.reserv_time;
+        var data = date + "-/-/-" + time;
         //var check = confirm("삭제하시겠습니까?");
         var check = swal({
             title: '예약을 취소하시겠습니까?',
@@ -247,7 +266,7 @@ System.out.println("user2: "+user);
             if (check) {
 
                 $.ajax({ //ajax 프레임워크( jQuery)로 위 data를 서버로 보냄.
-                    url: "ajax.do", //ajax.do(ajaxAction)에 있는
+                    url: "ajax.sep",
                     type: "post",
                     data: {
                         req: "deleteReservation",
@@ -261,7 +280,7 @@ System.out.println("user2: "+user);
                                 icon: 'success',
                                 button: '확인'
                             }).then(function () {
-                                location.href = 'userReservationInfo.do?id=' +<%=id%>;
+                                location.href = 'userReservationInfo.sep?id=' +<%=id%>;
 
                             });
 
@@ -273,8 +292,8 @@ System.out.println("user2: "+user);
     function deleteReservationRequest(i){
         var reservationRequestList = <%=ReservationRequest%>
         var reservation=reservationRequestList[i];
-        var date = reservation.date;
-        var time = reservation.time;
+        var date = reservation.reserv_date;
+        var time = reservation.reserv_time;
         var data=date+"-/-/-"+time;
         var check = swal({
             title : '예약을 취소하시겠습니까?',
@@ -283,20 +302,20 @@ System.out.println("user2: "+user);
         }).then((check) => {
             if(check){
                 $.ajax({ //ajax 프레임워크( jQuery)로 위 data를 서버로 보냄.
-                    url: "ajax.do", //ajax.do(ajaxAction)에 있는
+                    url: "ajax.sep", //ajax.do(ajaxAction)에 있는
                     type: "post",
                     data: {
                         req: "deleteReservationRequest",
                         data: data
                     },
-                    success: function (oid) {
+                    success: function (id) {
                         swal({
                             title : '예약 취소',
                             text: "예약이 취소되었습니다.",
                             icon : 'success',
                             button : '확인'
                         }).then(function () {
-                            location.href = 'userReservationInfo.do?id=' +<%=id%>;
+                            location.href = 'userReservationInfo.sep?id=' +<%=id%>;
 
                         });
                     }
@@ -305,12 +324,12 @@ System.out.println("user2: "+user);
         });
 
     }
-    function  modifyReservationRequest(oid){
+    function  modifyReservationRequest(id){
         var date = document.getElementById('modifyDate').value;
         var time = document.getElementById('modifyTime').value;
-        var cover = document.getElementById('modifyCovers').value;
         var name = document.getElementById('modifyName').value;
-        var data=date+"-/-/-"+time+"-/-/-"+cover+"-/-/-"+name+"-/-/-"+oid;
+        var NOP = document.getElementById('modifyNOP').value;
+        var data=date+"-/-/-"+time+"-/-/-"+NOP+"-/-/-"+name+"-/-/-"+id;
         var check =swal({
             title : '예약을 수정하시겠습니까?',
             icon : 'info',

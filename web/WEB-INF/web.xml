@@ -9,7 +9,6 @@
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
 
-    <!--2번 호출인가?-->
     <servlet>
         <servlet-name>Controller</servlet-name>
         <servlet-class>common.controller.Controller</servlet-class>

@@ -11,7 +11,7 @@
     <title>$Title$</title>
   </head>
   <body>
-경  </body>
+  </body>
 <script>
   window.location.href = 'main.sep';
 </script>

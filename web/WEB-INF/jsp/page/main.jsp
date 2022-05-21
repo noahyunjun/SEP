@@ -14,7 +14,7 @@
 <body>
 <%@include file="../common/header.jsp" %>
 <%
-System.out.println("user : "+user);
+//System.out.println("user : "+user);
 %>
 <main>
     <!-- restaurantMain section -->

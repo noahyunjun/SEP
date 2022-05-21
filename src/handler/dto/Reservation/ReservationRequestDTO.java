@@ -2,12 +2,16 @@ package handler.dto.Reservation;
 
 public class ReservationRequestDTO {
 
-    public String getOid() {
-        return oid;
+
+    private String id;
+    private String reserv_user;
+
+    public String getId() {
+        return id;
     }
 
-    public void setOid(String oid) {
-        this.oid = oid;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getReserv_user() {
@@ -66,22 +70,11 @@ public class ReservationRequestDTO {
         this.r_code = r_code;
     }
 
-    public String getVerifyCode() {
-        return verifyCode;
-    }
-
-    public void setVerifyCode(String verifyCode) {
-        this.verifyCode = verifyCode;
-    }
-
-    private String oid;
-    private String reserv_user;
     private String reserv_userId;
     private String reserv_date;
     private String reserv_time;
     private String reserv_NOP;
     private String reserv_table_num;
     private String r_code;
-    private String verifyCode;
 
 }

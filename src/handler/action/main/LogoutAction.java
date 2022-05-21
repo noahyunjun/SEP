@@ -16,7 +16,7 @@ public class LogoutAction implements Action {
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
         HttpSession session = request.getSession();
         session.invalidate();
-        response.sendRedirect("Index");
-        return null;
+//        response.sendRedirect("Index");
+        return "RequestDispatcher:jsp/page/main.jsp";
     }
 }
