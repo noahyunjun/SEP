@@ -71,7 +71,7 @@
             <div>
                 <div class="needs-validation" novalidate>
                     <div class="row g-3">
-                        <div style="width: 600px; margin: auto;">
+                        <div style="width: 650px; margin: auto;">
                             <label for="floatingInput" class="form-label"
                                    style="font-family: 'Noto Serif KR', serif;">아이디</label>
                             <div class="input-group has-validation">
@@ -82,7 +82,7 @@
                             </div>
                         </div>
 
-                        <div style="width: 600px; margin: auto;">
+                        <div style="width: 650px; margin: auto;">
                             <label for="floatingPassword" class="form-label"
                                    style="font-family: 'Noto Serif KR', serif;">비밀번호</label>
                             <input type="text" class="form-control" id="floatingPassword" placeholder="" required="">
