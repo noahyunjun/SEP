@@ -62,21 +62,24 @@
 <%--                class="w-100 btn btn-lg btn-dark" style="font-family: 'Noto Serif KR', serif;"--%>
 <%--        onclick="button()"--%>
 <%--    </form>--%>
-    <form>
-        <h1 class="h3 mb-3 fw-normal text-center " style="font-family: 'Noto Serif KR', serif;">Log-In</h1>
-        <div class="form-floating">
-            <input type="text" class="form-control btn-outline-dark " id="floatingInput" placeholder="id">
-            <label for="floatingInput">ID</label>
-        </div>
-        <div class="form-floating">
-            <input type="password" class="form-control btn-outline-dark" id="floatingPassword" placeholder="Password">
-            <label for="floatingPassword">Password</label>
-        </div>
-        <div class="mb-3">
-            <a style="font-size: 20px; color: black; font-family: 'Noto Serif KR', serif;" href="signupPage.do">회원 가입 하기</a>
-        </div>
-        <button type="button" class="w-100 btn btn-lg btn-dark" style="font-family: 'Noto Serif KR', serif;" id="lo_button">로그인 하기</button>
-    </form>
+    <div id="container">
+        <form>
+            <h1 class="h3 mb-3 fw-normal text-center " style="font-family: 'Noto Serif KR', serif;">Log-In</h1>
+            <div class="form-floating">
+                <input type="text" class="form-control btn-outline-dark mb-3 " id="floatingInput" placeholder="id">
+                <label for="floatingInput">ID</label>
+            </div>
+            <div class="form-floating">
+                <input type="password" class="form-control btn-outline-dark mb-3" id="floatingPassword" placeholder="Password">
+                <label for="floatingPassword">Password</label>
+            </div>
+            <div class="mb-3">
+                <a style="font-size: 20px; color: black; font-family: 'Noto Serif KR', serif;" href="signupPage.sep">회원 가입 하기</a>
+            </div>
+            <button type="button" class="w-100 btn btn-lg btn-dark" style="font-family: 'Noto Serif KR', serif;" id="lo_button">로그인 하기</button>
+        </form>
+    </div>
+
 
 </main>
 <script src="js/bootstrap.bundle.min.js"></script>

@@ -23,12 +23,9 @@
             <div class="row">
                 <div class="offset-lg-2 col-lg-8 col-md-12 col-12">
                     <div class="pt-17 pb-13 pt-lg-19 pb-lg-19 text-center text-light">
-                        <h1 class="display-3 text-white mb-3 lh-1">
+                        <h4 class="display-3 text-black mb-3 lh-1">
                             레스토랑 예약 시스템
-                        </h1>
-                        <p class="px-xl-18 px-md-14 mb-5 lead">
-                            여기가 지우거나 새로운 내용이 들어가야하는 곳입니다.
-                        </p>
+                        </h4>
                         <div class="carousel-inner">
                             <div class="container">
                                 <p style="font-family: 'Noto Serif KR', serif;"><a class="btn btn-lg btn-dark" href="reservation.sep">예약 하기</a></p>
