@@ -86,7 +86,7 @@
         <div>
             <h4 class="mb-3" style="font-family: 'Noto Serif KR', serif;">기본 정보</h4>
             <div class="needs-validation" novalidate>
-                <div class="row g-3"">
+                <div class="row g-3">
                     <div class="col-12">
                         <label for="name" class="form-label" style="font-family: 'Noto Serif KR', serif;">이 름</label>
                         <input style="margin-bottom: 20px;" type="text" class="form-control" id="name" placeholder="" value="" required>
