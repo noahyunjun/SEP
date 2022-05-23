@@ -1,8 +1,6 @@
-
 <!-- 1. 입력 폼을 채우고 제출하면 페이지 리로드 후 변화가 없음
-     뒤로가기 클릭 시 jquery 문구 "로그인 성공!"이 출력되고 확인 클릭 시 메인 페이지로 이동함 -->
+뒤로가기 클릭 시 jquery 문구 "로그인 성공!"이 출력되고 확인 클릭 시 메인 페이지로 이동함 -->
 <%--이슈해결 완료 _ 현준--%>
-
 
 
 <%
@@ -23,17 +21,19 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@800&family=Oswald:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@800&family=Oswald:wght@300&display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200&display=swap" rel="stylesheet">
 
     <!-- Libs CSS -->
     <link rel="stylesheet" href="../../../assets/libs/ion-rangeslider/css/ion.rangeSlider.min.css">
     <link rel="stylesheet" href="../../../assets/libs/litepicker/dist/css/litepicker.css">
     <link rel="stylesheet" href="../../../assets/libs/bootstrap-icons/font/bootstrap-icons.css">
-    <link rel="stylesheet"  href="../../../assets/libs/magnific-popup/dist/magnific-popup.css">
+    <link rel="stylesheet" href="../../../assets/libs/magnific-popup/dist/magnific-popup.css">
 
     <!-- Theme CSS -->
     <link rel="stylesheet" href="../../../assets/css/theme.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css"/>
 
     <!-- Libs JS -->
     <script src="../../../assets/libs/jquery/dist/jquery.min.js"></script>
@@ -47,45 +47,64 @@
     <script src="../../../assets/libs/inputmask/dist/jquery.inputmask.min.js"></script>
 
 
-
     <!-- clipboard -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"></script>
 
     <!-- Theme JS -->
     <script src="../../../assets/js/theme.min.js"></script>
 </head>
-<body>
+<body class="bg-light">
 
-<main class="form-signin">
+<main>
 
-<%--로그인 완료시 error page 대신 이미 로그인되었다는 modal 띄우기--%>
-<%--                class="w-100 btn btn-lg btn-dark" style="font-family: 'Noto Serif KR', serif;"--%>
-<%--        onclick="button()"--%>
-<%--    </form>--%>
-    <div id="container">
+    <%--로그인 완료시 error page 대신 이미 로그인되었다는 modal 띄우기--%>
+    <%--                class="w-100 btn btn-lg btn-dark" style="font-family: 'Noto Serif KR', serif;"--%>
+    <%--        onclick="button()"--%>
+    <%--    </form>--%>
+    <div class="container">
         <form>
-            <h1 class="h3 mb-3 fw-normal text-center " style="font-family: 'Noto Serif KR', serif;">Log-In</h1>
-            <div class="form-floating">
-                <input type="text" class="form-control btn-outline-dark mb-3 " id="floatingInput" placeholder="id">
-                <label for="floatingInput">ID</label>
+            <div class="py-5 text-center" style="margin-bottom: 50px; margin-top: 180px;">
+                <h2 style="font-family: 'Noto Serif KR', serif;">로그인</h2>
+                <p class="lead" style="font-family: 'Noto Serif KR', serif;"> 아직 계정이 없으신가요? <a
+                        href="signupPage.sep">회원가입</a></p>
             </div>
-            <div class="form-floating">
-                <input type="password" class="form-control btn-outline-dark mb-3" id="floatingPassword" placeholder="Password">
-                <label for="floatingPassword">Password</label>
+            <div>
+                <div class="needs-validation" novalidate>
+                    <div class="row g-3">
+                        <div style="width: 600px; margin: auto;">
+                            <label for="floatingInput" class="form-label"
+                                   style="font-family: 'Noto Serif KR', serif;">아이디</label>
+                            <div class="input-group has-validation">
+                                <input type="text" class="form-control" id="floatingInput" placeholder="" required>
+                                <div class="invalid-feedback">
+                                    아이디를 입력해주세요.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="width: 600px; margin: auto;">
+                            <label for="floatingPassword" class="form-label"
+                                   style="font-family: 'Noto Serif KR', serif;">비밀번호</label>
+                            <input type="text" class="form-control" id="floatingPassword" placeholder="" required="">
+                            <div class="invalid-feedback">
+                                비밀번호를 입력해주세요.
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="w-100 btn btn-lg btn-dark" style="font-family: 'Noto Serif KR', serif; margin-top: 30px;"
+                            id="lo_button">로그인 하기
+                    </button>
+                </div>
             </div>
-            <div class="mb-3">
-                <a style="font-size: 20px; color: black; font-family: 'Noto Serif KR', serif;" href="signupPage.sep">회원 가입 하기</a>
-            </div>
-            <button type="button" class="w-100 btn btn-lg btn-dark" style="font-family: 'Noto Serif KR', serif;" id="lo_button">로그인 하기</button>
         </form>
     </div>
-
-
 </main>
+
 <script src="js/bootstrap.bundle.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
+
 <script>
 
     $(document).ready(function () { //이 파일이 시작되면 자동으로 실행됩니다.
@@ -102,7 +121,8 @@
                 button: '확인',
             });
     }
-    $("#test_swal").click(function test_swal(){
+
+    $("#test_swal").click(function test_swal() {
         swal({
             title: '테스트.',
             text: '테스트는 완료됨.',

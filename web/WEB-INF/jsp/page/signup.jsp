@@ -79,22 +79,22 @@
     <!-- sign up -->
 
     <div class="container">
-        <div class="py-5 text-center">
+        <div class="py-5 text-center" style="margin-bottom: 30px; margin-top: 140px;">
             <h2 style="font-family: 'Noto Serif KR', serif;">회원 가입</h2>
             <p class="lead" style="font-family: 'Noto Serif KR', serif;"> 아래의 정보들을 모두 입력하세요. </p>
         </div>
         <div>
             <h4 class="mb-3" style="font-family: 'Noto Serif KR', serif;">기본 정보</h4>
             <div class="needs-validation" novalidate>
-                <div class="row g-3">
+                <div class="row g-3"">
                     <div class="col-12">
                         <label for="name" class="form-label" style="font-family: 'Noto Serif KR', serif;">이 름</label>
-                        <input type="text" class="form-control" id="name" placeholder="" value="" required>
+                        <input style="margin-bottom: 20px;" type="text" class="form-control" id="name" placeholder="" value="" required>
                         <div class="invalid-feedback">
                             이름을 입력해주세요.
                         </div>
                     </div>
-                    <div class="col-12">
+                    <div style="width: 700px; margin: auto;">
                         <label for="id" class="form-label" style="font-family: 'Noto Serif KR', serif;">아이디</label>
                         <div class="input-group has-validation">
                             <input type="text" class="form-control" id="id" placeholder="" required>
@@ -104,7 +104,7 @@
                         </div>
                     </div>
 
-                    <div class="col-12">
+                    <div style="width: 600px; margin: auto;">
                         <label for="pw" class="form-label" style="font-family: 'Noto Serif KR', serif;">비밀번호</label>
                         <input type="text" class="form-control" id="pw" placeholder="" required="">
                         <div class="invalid-feedback">
@@ -112,7 +112,7 @@
                         </div>
                     </div>
                 </div>
-                <button class="w-100 btn btn-dark btn-lg" onclick="signUp()" style="font-family: 'Noto Serif KR', serif;">회원가입 하기</button>
+                <button class="w-100 btn btn-dark btn-lg" onclick="signUp()" style="font-family: 'Noto Serif KR', serif; margin-top: 30px;">회원가입 하기</button>
             </div>
         </div>
     </div>
@@ -120,6 +120,7 @@
 <script src="js/bootstrap.bundle.min.js"></script>
 <script src="js/form-validation.js"></script>
 </body>
+
 <script>
     function signUp() {
         var name = $('#name').val();
