@@ -14,7 +14,7 @@
 <body>
 <%@include file="../common/header.jsp" %>
 <%
-    //System.out.println("user : "+user);
+//System.out.println("user : "+user);
 %>
 <main>
     <!-- restaurantMain section -->
@@ -39,9 +39,7 @@
                     </h4>
                     <div class="carousel-inner">
                         <div class="container pt-5 pb-5">
-                            <p style="font-family: 'Noto Serif KR', serif;"><a class="btn btn-lg btn-dark"
-                                                                               style='font-size: 1.5rem;'
-                                                                               href="reservation.sep">예약 하기</a></p>
+                            <p style="font-family: 'Noto Serif KR', serif;"><a class="btn btn-lg btn-dark" href="reservation.sep">예약 하기</a></p>
                         </div>
                     </div>
                 </div>
@@ -55,8 +53,11 @@
     <!-- Wrap the rest of the page in another container to center all the content. -->
 
 
+
+
+
     <!-- START THE FEATURETTES -->
-    <%--    <hr class="featurette-divider" style="color: black">--%>
+<%--    <hr class="featurette-divider" style="color: black">--%>
 
 
 </main>
