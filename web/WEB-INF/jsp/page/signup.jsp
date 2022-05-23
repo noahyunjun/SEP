@@ -81,7 +81,7 @@
     <div class="container">
         <div class="py-5 text-center">
             <h2 style="font-family: 'Noto Serif KR', serif;">회원 가입</h2>
-            <p class="lead" style="font-family: 'Noto Serif KR', serif;"> 아래의 정보들을 모두 입력하시오. </p>
+            <p class="lead" style="font-family: 'Noto Serif KR', serif;"> 아래의 정보들을 모두 입력하세요. </p>
         </div>
         <div>
             <h4 class="mb-3" style="font-family: 'Noto Serif KR', serif;">기본 정보</h4>

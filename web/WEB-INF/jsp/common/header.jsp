@@ -66,11 +66,11 @@
 <header>
     <div>
         <!-- header -->
-        <div class="header fixed-top border-3 border-top border-primary">
+        <div class="header fixed-top border-3 border-top border-primary" style="height:90px;">
             <!-- navigation start -->
             <div class="container">
-                <nav class="navbar navbar-expand-lg navbar-default">
-                    <a class="navbar-brand" href="main.sep"><h2>SW Rest</h2></a>
+                <nav class="navbar navbar-expand-lg navbar-default" >
+                    <a class="navbar-brand" style="color:#ff5938" href="main.sep"><h2>SW Rest</h2></a>
                     <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbar-default" aria-controls="navbar-default" aria-expanded="false"
                             aria-label="Toggle navigation">
@@ -84,9 +84,12 @@
                                 aria-label="Toggle navigation">
                             <i class="fas fa-times"></i>
                         </button>
-                        <ul class="navbar-nav ms-auto me-lg-3 ">
+                        <ul class="navbar-nav ms-auto me-lg-3">
+                            <li class="header-btn" style="margin-right: 10px;">
+                                <p style="font-family: 'Noto Serif KR', serif;"><a class="btn btn-lg btn-dark" href="userReservationInfo.sep">마이페이지</a></p>
+                            </li>
                             <li class="header-btn">
-                                <a href="userReservationInfo.sep">마이페이지</a>
+                                <div id="login"></div>
                             </li>
                         </ul>
 
@@ -94,10 +97,12 @@
 <%--                            <a style="font-family: 'Noto Serif KR', serif;" href="loginPage.sep"--%>
 <%--                               class="btn btn-primary btn-sm ">로그인</a>--%>
 <%--                        </div>--%>
+                        <!--
                         <div class="d-flex">
                             <%--                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">--%>
                             <div id="login"></div>
                         </div>
+                        -->
                     </div>
                 </nav>
             </div>
@@ -114,11 +119,11 @@
         var list = $('#login');
         var a = '';
         if (user==null){//미로그인 상태
-            a+= '<button id="login" class="btn btn-outline-dark container" onclick="goToLoginPage()">LOGIN</button>';
+            a+= '<button id="login" class="btn btn-lg btn-dark" style="font-family: \'Noto Serif KR\', serif;" onclick="goToLoginPage()">로그인</button>';
         }
         else {//로그인 상태
             // alert(user.type+'의 접속');
-                a+= '<button id="logout" class="btn btn-outline-dark container" onclick="logout()">LOGOUT</button>';
+                a+= '<button id="logout" class="btn btn-lg btn-dark" style="font-family: \'Noto Serif KR\', serif;" onclick="logout()">로그아웃</button>';
         }
         list.append(a);
     }
