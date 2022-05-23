@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Gabriel Yoon
-  Date: 2021-05-09
-  Time: 오전 12:55
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!-- FOOTER -->
 <head>
@@ -63,6 +57,7 @@
                 <ul class="list-unstyled list-group">
                     <li class="list-group-item text-white-50">서아현</li>
                     <li class="list-group-item text-white-50">김용비</li>
+                    <li class="list-group-item text-white-50">조단</li>
                 </ul>
             </div>
         </div>

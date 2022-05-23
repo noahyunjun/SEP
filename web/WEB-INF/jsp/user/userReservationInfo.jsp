@@ -1,11 +1,10 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%
     String ReservationRequest = (String) request.getAttribute("ReservationRequest");
     String Reservation = (String) request.getAttribute("Reservation");
     String Order = (String) request.getAttribute("Order");
-    String id=(String) request.getAttribute("id");
+    String id = (String) request.getAttribute("id");
 //        System.out.println("reservationRequest : "+ReservationRequest);
 //        System.out.println("reservation : "+Reservation);
 //        System.out.println("id : "+ id);
@@ -27,7 +26,7 @@
 <body>
 <%@include file="../common/header.jsp" %>
 <%
-//System.out.println("user2: "+user);
+    //System.out.println("user2: "+user);
 %>
 <br>
 <br>
@@ -56,113 +55,119 @@
         </table>
 
         <br>
-        <div style="font-size: 20px; font-weight: bold">예약완료 현황</div>
-        <table
-                id="reservationTable"
-                data-toggle="table"
-                data-height="460"
-                data-search="true"
-                data-show-search-button="true"
-                data-pagination="true"
-                data-side-pagination="server">
-            <thead>
-            <tr>
-                <th data-field="action">설정</th>
-                <th data-field="oid">예약번호</th>
-                <th data-field="date">날짜</th>
-                <th data-field="time">시간</th>
-                <th data-field="covers">예약인원</th>
-                <th data-field="table_id">테이블</th>
-            </tr>
-            </thead>
-        </table>
+        <%--        <div style="font-size: 20px; font-weight: bold">예약완료 현황</div>--%>
+        <%--        <table--%>
+        <%--                id="reservationTable"--%>
+        <%--                data-toggle="table"--%>
+        <%--                data-height="460"--%>
+        <%--                data-search="true"--%>
+        <%--                data-show-search-button="true"--%>
+        <%--                data-pagination="true"--%>
+        <%--                data-side-pagination="server">--%>
+        <%--            <thead>--%>
+        <%--            <tr>--%>
+        <%--                <th data-field="action">설정</th>--%>
+        <%--                <th data-field="oid">예약번호</th>--%>
+        <%--                <th data-field="date">날짜</th>--%>
+        <%--                <th data-field="time">시간</th>--%>
+        <%--                <th data-field="covers">예약인원</th>--%>
+        <%--                <th data-field="table_id">테이블</th>--%>
+        <%--            </tr>--%>
+        <%--            </thead>--%>
+        <%--        </table>--%>
 
-        <br>
-        <br>
-        <div style="font-size: 20px; font-weight: bold">주문 현황</div>
-        <table
-                id="orderTable"
-                data-toggle="table"
-                data-height="460"
-                data-search="true"
-                data-show-search-button="true"
-                data-pagination="true"
-                data-side-pagination="server">
-            <thead>
-            <tr>
-                <th data-field="oid">예약번호</th>
-                <th data-field="date">날짜</th>
-                <th data-field="orderedList">주문 리스트</th>
-                <th data-field="payment">결제방식</th>
-                <th data-field="totalPrice">결제금액</th>
-                <th data-field="message">메세지</th>
-            </tr>
-            </thead>
-        </table>
+        <%--        <br>--%>
+        <%--        <br>--%>
+        <%--        <div style="font-size: 20px; font-weight: bold">주문 현황</div>--%>
+        <%--        <table--%>
+        <%--                id="orderTable"--%>
+        <%--                data-toggle="table"--%>
+        <%--                data-height="460"--%>
+        <%--                data-search="true"--%>
+        <%--                data-show-search-button="true"--%>
+        <%--                data-pagination="true"--%>
+        <%--                data-side-pagination="server">--%>
+        <%--            <thead>--%>
+        <%--            <tr>--%>
+        <%--                <th data-field="oid">예약번호</th>--%>
+        <%--                <th data-field="date">날짜</th>--%>
+        <%--                <th data-field="orderedList">주문 리스트</th>--%>
+        <%--                <th data-field="payment">결제방식</th>--%>
+        <%--                <th data-field="totalPrice">결제금액</th>--%>
+        <%--                <th data-field="message">메세지</th>--%>
+        <%--            </tr>--%>
+        <%--            </thead>--%>
+        <%--        </table>--%>
 
-    </div>
-    <div class="modal fade" id="staticBackdrop4" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel4" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel4">수정하기</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <%--    </div>--%>
+            <div class="modal fade" id="staticBackdrop4" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel4" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel4">수정하기</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body" id = "UserModify"></div>
+                        <%--                        <div class="modal-footer">--%>
+                        <%--                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>--%>
+                        <%--                            <button type="button" class="btn btn-primary">추가하기</button>--%>
+                        <%--                        </div>--%>
+                    </div>
                 </div>
-                <div class="modal-body" id = "UserModify"></div>
-                <%--                        <div class="modal-footer">--%>
-                <%--                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>--%>
-                <%--                            <button type="button" class="btn btn-primary">추가하기</button>--%>
-                <%--                        </div>--%>
             </div>
-        </div>
-    </div>
 
+    </div>
 </div>
 </body>
 <script src="https://unpkg.com/bootstrap-table@1.18.3/dist/bootstrap-table.min.js"></script>
 <script src="js/bootstrap.bundle.min.js"></script>
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         callSetupTableView();
         makeID();
     })
-    function makeID(){
-        var user=<%=user%>;
+
+    function makeID() {
+        var user =<%=user%>;
         var list = $('#userID');
-        var text='';
+        var text = '';
         text += '<label for="userid" class="form-label">고객 아이디</label>'
-            +'<div class="input-group has-validation"><span class="input-group-text">@</span>'
-            +'<input type="text" class="form-control" id="userid" placeholder="Customer ID" value="'+user.id+'" required="" readonly>'
-            +'<div class="invalid-feedback">고객 아이디를 입력하세요</div></div>';
+            + '<div class="input-group has-validation"><span class="input-group-text">@</span>'
+            + '<input type="text" class="form-control" id="userid" placeholder="Customer ID" value="' + user.id + '" required="" readonly>'
+            + '<div class="invalid-feedback">고객 아이디를 입력하세요</div></div>';
         list.append(text);
     }
-    function callSetupTableView(){
-        $('#reservationRequestTable').bootstrapTable('load',data1());
+
+    function callSetupTableView() {
+        $('#reservationRequestTable').bootstrapTable('load', data1());
         $('#reservationRequestTable').bootstrapTable('refresh');
-        $('#orderTable').bootstrapTable('load',data2());
+        $('#orderTable').bootstrapTable('load', data2());
         $('#orderTable').bootstrapTable('refresh');
-        $('#reservationTable').bootstrapTable('load',data3());
+        $('#reservationTable').bootstrapTable('load', data3());
         $('#reservationTable').bootstrapTable('refresh');
     }
-    function data1(){
-        var reservaionRequestLst = <%=ReservationRequest%>
+
+    function data1() {
+        var reservaionRequestLst =
+        <%=ReservationRequest%>
         var rows = [];
-        for(var i=0;i<reservaionRequestLst.length;i++){
-            var request=reservaionRequestLst[i];
+        for (var i = 0; i < reservaionRequestLst.length; i++) {
+            var request = reservaionRequestLst[i];
             rows.push({
                 user: request.reserv_user,
                 userId: request.reserv_userId,
                 date: request.reserv_date,
                 time: request.reserv_time,
                 NOP: request.reserv_NOP,
-                action : '<button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#staticBackdrop4" onclick="MakeModalData('+i+')">예약 정보 수정</button>'+
-                    '<button class="btn btn-outline-dark" onclick="deleteReservationRequest('+i+')">예약 취소</button>'
+                action: '<button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#staticBackdrop4" onclick="MakeModalData(' + i + ')">예약 정보 수정</button>' +
+                    '<button class="btn btn-outline-dark" onclick="deleteReservationRequest(' + i + ')">예약 취소</button>'
 
             });
         }
         // alert(rows);
         return rows;
     }
+
     function data2(){
         var orderList = <%=Order%>
         var rows = [];
@@ -200,12 +205,13 @@
     }
     var openingTime = 10;
     var closingTime = 22;
-    function MakeModalData(i){
+
+    function MakeModalData(i) {
         var list = $('#UserModify');
-        var text='';
+        var text = '';
         // alert('id:'+id);
         var reservationRequestList = <%=ReservationRequest%>;
-        var reservation=reservationRequestList[i];
+        var reservation = reservationRequestList[i];
         var date = reservation.reserv_date;
         var time = reservation.reserv_time;
         var NOP = reservation.reserv_NOP;
@@ -213,28 +219,29 @@
         var ID = reservation.reserv_id;
         var id2 = reservation.reserv_userId;
         var r_code = reservation.r_code;
-        text +='날짜<input type="date" class="form-control" id="modifyDate" name="new_date" value="'+date+'" placeholder="Date">'
-        text +='시간<select id="modifyTime" class="form-control"><option value="'+time+'">'+time+':00</option>'
-        for(var i=openingTime;i<closingTime;i++){
-            text+='<option value="'+i+'">'+i+':00</option>';
+        text += '날짜<input type="date" class="form-control" id="modifyDate" name="new_date" value="' + date + '" placeholder="Date">'
+        text += '시간<select id="modifyTime" class="form-control"><option value="' + time + '">' + time + ':00</option>'
+        for (var i = openingTime; i < closingTime; i++) {
+            text += '<option value="' + i + '">' + i + ':00</option>';
         }
-        text +='</select>';
+        text += '</select>';
         //이름
-        text+= '이름<input type="text" class="form-control" id="modifyName" name="new_name" value="'+name+'">';
+        text += '이름<input type="text" class="form-control" id="modifyName" name="new_name" value="' + name + '">';
         //인원수
-        text += '인원수<select id="modifyNOP" class="form-control"><option value="'+NOP+'">'+NOP+'명</option>';
-        for(var i=2;i<6;i++){
-            text+='<option value="'+i+'">'+i+'명</option>';
+        text += '인원수<select id="modifyNOP" class="form-control"><option value="' + NOP + '">' + NOP + '명</option>';
+        for (var i = 2; i < 6; i++) {
+            text += '<option value="' + i + '">' + i + '명</option>';
         }
-        text+='</select>';
-        text+='<div class="modal-footer">'
-            +'<button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">취소</button>'
+        text += '</select>';
+        text += '<div class="modal-footer">'
+            + '<button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">취소</button>'
             // +'<button type="button" class="btn btn-dark" onclick="modifyReservationRequest('+ID+')">수정하기</button>'
-            +'<button type="button" class="btn btn-dark" onclick="modifyReservationRequest('+r_code+')">수정하기</button>'
+            + '<button type="button" class="btn btn-dark" onclick="modifyReservationRequest(' + r_code + ')">수정하기</button>'
             // +'<button type="button" class="btn btn-dark" id="test">테스트</button>'
-            +'</div>';
+            + '</div>';
         list.html(text);//누를때마다 #DataModify의 값을 완전 새로 갈아치움
     }
+
     // $("#test").click(function test_swal() {
     //     swal({
     //         title: '테스트.',
@@ -247,12 +254,14 @@
     //swal test용 함수
 
 
-    function message(){
-        alert("※변경을 원하시면 02-111-2222로 문의해주세요.※");
-        location.href='userReservationInfo.sep?id='+<%=id%>;
-    }
+    <%--function message(){--%>
+    <%--    alert("※변경을 원하시면 02-111-2222로 문의해주세요.※");--%>
+    <%--    location.href='userReservationInfo.sep?id='+<%=id%>;--%>
+    <%--}--%>
+
     function deleteReservation(i) {
-        var reservationList = <%=Reservation%>
+        var reservationList =
+        <%=Reservation%>
         var reservation = reservationList[i];
         var date = reservation.reserv_date;
         var time = reservation.reserv_time;
@@ -274,33 +283,35 @@
                     },
                     success: function (oid) {
 
-                            swal({
-                                title: '예약 취소',
-                                text: "예약이 취소되었습니다.",
-                                icon: 'success',
-                                button: '확인'
-                            }).then(function () {
-                                location.href = 'userReservationInfo.sep?id=' +<%=id%>;
+                        swal({
+                            title: '예약 취소',
+                            text: "예약이 취소되었습니다.",
+                            icon: 'success',
+                            button: '확인'
+                        }).then(function () {
+                            location.href = 'userReservationInfo.sep?id=' +<%=id%>;
 
-                            });
+                        });
 
                     }
                 })
             }
         });
     }
-    function deleteReservationRequest(i){
-        var reservationRequestList = <%=ReservationRequest%>
-        var reservation=reservationRequestList[i];
+
+    function deleteReservationRequest(i) {
+        var reservationRequestList =
+        <%=ReservationRequest%>
+        var reservation = reservationRequestList[i];
         var date = reservation.reserv_date;
         var time = reservation.reserv_time;
-        var data=date+"-/-/-"+time;
+        var data = date + "-/-/-" + time;
         var check = swal({
-            title : '예약을 취소하시겠습니까?',
-            icon : 'info',
-            button : '확인'
+            title: '예약을 취소하시겠습니까?',
+            icon: 'info',
+            button: '확인'
         }).then((check) => {
-            if(check){
+            if (check) {
                 $.ajax({ //ajax 프레임워크( jQuery)로 위 data를 서버로 보냄.
                     url: "ajax.sep", //ajax.do(ajaxAction)에 있는
                     type: "post",
@@ -310,10 +321,10 @@
                     },
                     success: function (id) {
                         swal({
-                            title : '예약 취소',
+                            title: '예약 취소',
                             text: "예약이 취소되었습니다.",
-                            icon : 'success',
-                            button : '확인'
+                            icon: 'success',
+                            button: '확인'
                         }).then(function () {
                             location.href = 'userReservationInfo.sep?id=' +<%=id%>;
 
@@ -324,18 +335,19 @@
         });
 
     }
-    function  modifyReservationRequest(id){
+
+    function modifyReservationRequest(id) {
         var date = document.getElementById('modifyDate').value;
         var time = document.getElementById('modifyTime').value;
         var name = document.getElementById('modifyName').value;
         var NOP = document.getElementById('modifyNOP').value;
-        var data=date+"-/-/-"+time+"-/-/-"+NOP+"-/-/-"+name+"-/-/-"+id;
-        var check =swal({
-            title : '예약을 수정하시겠습니까?',
-            icon : 'info',
-            button : '확인'
+        var data = date + "-/-/-" + time + "-/-/-" + NOP + "-/-/-" + name + "-/-/-" + id;
+        var check = swal({
+            title: '예약을 수정하시겠습니까?',
+            icon: 'info',
+            button: '확인'
         }).then((check) => {
-            if(check){
+            if (check) {
                 $.ajax({ //ajax 프레임워크( jQuery)로 위 data를 서버로 보냄.
                     url: "ajax.sep", //ajax.do(ajaxAction)에 있는
                     type: "post",
@@ -345,23 +357,22 @@
                     },
                     success: function (oid) {
 
-                        if(oid=="-1"){
+                        if (oid == "-1") {
                             swal({
-                                title : '예약 수정 실패!',
-                                text : "이미 예약이 있는 날짜입니다\n다른 날짜로 수정해주세요.",
-                                icon : 'error',
+                                title: '예약 수정 실패!',
+                                text: "이미 예약이 있는 날짜입니다\n다른 날짜로 수정해주세요.",
+                                icon: 'error',
                                 button: '확인'
                             }).then(function () {
-                                location.hrer= 'userReservationInfo.sep?id=' +<%=id%>;
+                                location.hrer = 'userReservationInfo.sep?id=' +<%=id%>;
                             });
-                        }
-                        else {
+                        } else {
                             swal({
-                                title : '예약 수정 성공!',
-                                text : "예약 정보가 수정되었습니다.",
-                                icon : 'success',
-                                button : '확인'
-                            }). then(function () {
+                                title: '예약 수정 성공!',
+                                text: "예약 정보가 수정되었습니다.",
+                                icon: 'success',
+                                button: '확인'
+                            }).then(function () {
                                 location.href = 'userReservationInfo.sep?id=' +<%=id%>;
 
                             });

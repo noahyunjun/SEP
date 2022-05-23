@@ -1,6 +1,7 @@
 
 <!-- 1. 입력 폼을 채우고 제출하면 페이지 리로드 후 변화가 없음
      뒤로가기 클릭 시 jquery 문구 "로그인 성공!"이 출력되고 확인 클릭 시 메인 페이지로 이동함 -->
+<%--이슈해결 완료 _ 현준--%>
 
 
 
@@ -15,7 +16,7 @@
 <!doctype html>
 <html>
 <head>
-    <title>Little4 Restaurant LOGIN</title>
+    <title> Restaurant LOGIN</title>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">

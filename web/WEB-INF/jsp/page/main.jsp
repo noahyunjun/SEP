@@ -18,7 +18,7 @@
 %>
 <main>
     <!-- restaurantMain section -->
-    <div style="background-image: url(../../../assets/images/restaurantMain.jpg); background-size: cover; background-repeat: no-repeat; background-position: center;">
+    <div style="background-image: url(../../../assets/images/cafe-shop-restaurant-design-modern-and-minimal-white-tone-3d-render_240259-27.jpg); background-size: cover; background-repeat: no-repeat; background-position: center;">
         <div class="container">
             <div class="row">
                 <div class="offset-lg-2 col-lg-8 col-md-12 col-12">
@@ -44,14 +44,13 @@
     <!-- Marketing messaging and featurettes
     ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
-    <div>
-        <div>
+
 
 
 
 
     <!-- START THE FEATURETTES -->
-    <hr class="featurette-divider" style="color: black">
+<%--    <hr class="featurette-divider" style="color: black">--%>
 
 
 </main>

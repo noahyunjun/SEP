@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: 최예슬
-  Date: 2021-05-14
-  Time: 오전 12:59
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     String date = (String) request.getAttribute("date");
@@ -60,12 +54,16 @@
 
 <main class="container">
     <div class="bg-light p-5 rounded">
+        <div>
+            &nbsp;
+            &nbsp;
+            &nbsp;
+        </div>
         <h1 style="font-family: 'Noto Serif KR', serif;">Reservation</h1>
         <p class="lead" style="color: red" style="font-family: 'Noto Serif KR', serif;">! 알립니다.</p>
         <p class="lead" style="font-family: 'Noto Serif KR', serif;">- 연중무휴</p>
         <p class="lead" style="font-family: 'Noto Serif KR', serif;">- 근무 시간 </p>
-        <p class="lead" style="font-family: 'Noto Serif KR', serif;">* 월~일 : 16:00 ~ 21:00</p>
-        <p class="lead" style="font-family: 'Noto Serif KR', serif;">예약 방문 시간 15분 이후에는 예약이 취소될 수 있습니다.</p>
+        <p class="lead" style="font-family: 'Noto Serif KR', serif;">* 월~일 : 10:00 ~ 21:00</p>
         <p class="lead" style="font-family: 'Noto Serif KR', serif;">단체 예약은 매장으로 전화 부탁드립니다. (02-9999-4444) </p>
     </div>
     <br>
@@ -107,7 +105,7 @@
             text+='<div class="col">'
                 +'<div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">'
                 // +'<button type="button" class="btn btn-outline-secondary btn-lg px-4" id="'+i+'oClock" onclick="ScheduleClicked('+i+')">'+i+':00</button>'
-                +'<button type="button" class="btn btn-dark" id="time'+i+'" onclick="ScheduleClicked('+i+')">'+i+':00</button>'
+                +'<button type="button" class="btn btn-outline-dark" id="time'+i+'" onclick="ScheduleClicked('+i+')">'+i+':00</button>'
                 +'</div></div>';
             //시간버튼들 띄우는 부분.
         }
@@ -117,11 +115,18 @@
     function goToSelectTime(){
         var date=$('#reservationDate').val();
         if(date!=''){
-            location.href='selectTime.sep?date='+date;
+            swal({
+                title : '예약 가능한 시간입니다',
+                icon : 'info',
+                button : '확인',
+            }).then(function (){
+                location.href='selectTime.sep?date='+date;
+            });
+
         }
         else {
             swal({
-                title : '날짜를 선택해주세요!',
+                title : '예약이 불가능한 날짜 입니다.',
                 icon : 'error',
                 button : '확인',
             });

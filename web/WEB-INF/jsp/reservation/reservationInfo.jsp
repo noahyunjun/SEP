@@ -12,7 +12,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.83.1">
-    <title>Little4 Restaurant ReservationInfo</title>
+    <title> Restaurant ReservationInfo</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200&display=swap" rel="stylesheet">
     <title>RESERVATION info</title>
@@ -90,12 +90,15 @@
                             <option value="2">2명</option>
                             <option value="3">3명</option>
                             <option value="4">4명</option>
+                            <option value="5">5명</option>
                         </select>
                         <div class="invalid-feedback" style="font-family: 'Noto Serif KR', serif;">
                             함께 오시는 인원 수를 입력하세요.
                         </div>
                     </div>
-
+                    <div>
+                        <img src="../../../assets/images/KakaoTalk_Photo_2022-05-23-16-54-08.png" style="size: auto">
+                    </div>
                     <div class="col-12">
                         <label for="table_num" class="form-label" style="font-family: 'Noto Serif KR', serif;">테이블 번호</label>
                         <select id="table_num" class="form-control">
@@ -103,6 +106,10 @@
                             <option value="2">2번 테이블</option>
                             <option value="3">3번 테이블</option>
                             <option value="4">4번 테이블</option>
+                            <option value="5">5번 테이블</option>
+                            <option value="6">6번 테이블</option>
+                            <option value="7">7번 테이블</option>
+                            <option value="8">8번 테이블</option>
                         </select>
                         <div class="invalid-feedback" style="font-family: 'Noto Serif KR', serif;">
                             함께 오시는 인원 수를 입력하세요.
@@ -110,11 +117,13 @@
                     </div>
                 </div>
                 <hr class="my-4">
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="save-info">
-                    <label class="form-check-label" for="save-info" style="font-family: 'Noto Serif KR', serif;">이 정보를 다음에도 사용하시겠습니까?</label>
-                </div>
             <button class="w-100 btn btn-dark btn-lg" style="font-family: 'Noto Serif KR', serif;" onclick="completeReservationRequest()">예약하기</button>
+            <div>
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                &nbsp;
+            </div>
     </main>
 
 </div>
