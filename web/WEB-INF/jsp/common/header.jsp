@@ -4,7 +4,7 @@
     String user = (String) session.getAttribute("user");
     /**
      * session에서 user의 정보를 받아옵니다.
-     * user를 setAttribute하고 있는 곳은 src/com/se/team4/application/domain/AjaxAction 클래스의
+     * user를 setAttribute하고 있는 곳은 AjaxAction 클래스의
      * session.setAttribute("user", gson.toJson(HomeDAO.getInstance().getUserInfo(id))); 입니다.
      * 로그인을 하지 않은 경우 user는 null입니다.
      * 즉, 로그인 정보는 이 header.jsp가 include되는 어느 곳에서든 따라다니게 되므로 user 사용이 어디서나 가능하게 됩니다.
